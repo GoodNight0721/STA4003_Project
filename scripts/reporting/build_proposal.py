@@ -153,8 +153,9 @@ body("The primary series is the national quarterly total retail sales of consume
      "(https://data.stats.gov.cn). In the underlying monthly series NBS published distinct January and February "
      "values through 2011, but from 2012 onward it publishes January and February only as a combined \u201cJan\u2013Feb\u201d "
      "total. We therefore work at quarterly frequency: Q1 is the published Jan\u2013Feb total plus March, and Q2\u2013Q4 "
-     "are recovered by differencing the official cumulative series. This construction reproduces the published "
-     "annual totals exactly. The quarterly series runs "
+     "are recovered by differencing the official cumulative series. From 2000 onward, quarter differences sum "
+     "to December cumulative values by construction; this internal accounting identity is not independent "
+     "validation. The quarterly series runs "
      f"{FIRST} to {LAST}, giving {N} observations across {NCY} complete seasonal cycles plus the first two quarters "
      f"of {LY} — far above the guideline of at least 60 observations and 4 complete cycles. A secondary quarterly "
      f"series, the manufacturing PMI ({min(PMI)}\u2013{max(PMI)}, {len(PMI)} observations), is "
@@ -167,7 +168,8 @@ data_rows = [
      "(monthly data \u21d2 domestic trade \u21d2 retail sales; other \u21d2 purchasing managers index). Retrieved 28 Sep 2026."),
     ("How the data were collected",
      "Monthly statistical reports by wholesale/retail enterprises above a turnover threshold, aggregated by NBS; "
-     "PMI from NBS\u2019s monthly survey of purchasing managers. Construction validated against published annual totals."),
+     "PMI from NBS\u2019s monthly survey of purchasing managers. The project selects cumulative retail values for "
+     "2000 onward; quarter sums equal December cumulative values by construction, not independent validation."),
     ("Time period and frequency",
      f"Retail {FIRSTQ()} to {LAST} at quarterly frequency (built from official monthly releases); PMI {min(PMI)}\u2013{max(PMI)}."),
     ("Number of observations",
@@ -176,9 +178,9 @@ data_rows = [
      "Quarterly nominal retail sales (\u4ebf\u5143, log-transformable) and quarterly manufacturing PMI (%); lunar New Year "
      "calendar position per year (metadata)."),
     ("Missing values / known data-quality issues",
-     "Since 2012 Jan\u2013Feb published only as a combined total (handled by quarterly aggregation); current-month vs "
-     "cumulative series disagree in 2005 (\u22485%) and 2011 (\u22480.2%) — the cumulative vintage equals official annual "
-     "totals and is used for 2000+; COVID-19 outliers in 2020Q1 and 2022Q2 retained and interpreted."),
+     "Since 2012 Jan\u2013Feb is published only as a combined total (handled by quarterly aggregation); current-period "
+     "and cumulative vintages disagree in 2005 (\u22485%) and 2011 (\u22480.2%). The project selects cumulative values for "
+     "2000 onward. COVID-19 observations in 2020Q1 and 2022Q2 are retained."),
     ("Seasonality check",
      f"Stable 4-quarter cycle; 32 complete annual cycles; {FMT['peak']} always the strongest quarter."),
     ("Legal / ethical suitability",
@@ -214,8 +216,8 @@ body(f"Within-year seasonality: the seasonal swing is large, and the ranking is 
      f"({FMT['peak_share']}% of the yearly total on average) is the strongest quarter in every one of the 32 complete "
      f"years, followed by Q1 ({qshare[1]*100:.1f}%); Q2 is the most common trough ({qshare[2]*100:.1f}%).")
 body(f"Stability of the seasonal pattern: the January\u2013February balance shifts with the lunar New Year, whose date "
-     f"moves between late January and mid-February. In the 1994\u20132011 monthly data, February\u2019s share of the combined "
-     f"Jan\u2013Feb retail total averages {FMT['mjan']} when CNY falls in January but {FMT['mfeb']} when it falls in February; at "
+     f"moves between late January and mid-February. In the 1994\u20132011 monthly data, the Feb/Jan retail ratio "
+     f"averages {FMT['mjan']} when CNY falls in January but {FMT['mfeb']} when it falls in February; at "
      f"quarterly level, Q1\u2019s share of the annual total rises correspondingly from {FMT['sjan']}% (CNY in January) to "
      f"{FMT['sfeb']}% (CNY in February). Because January and February are published jointly from 2012, this drift "
      f"enters our models as a continuous CNY-position covariate rather than through fixed monthly seasonal factors.")
@@ -229,8 +231,9 @@ body("Irregular timing: the lunar New Year shifts the effective season between J
      "seasonal factors are only approximate; the CNY-position covariate is designed to capture exactly this.")
 body(f"Outlying observations: 2020Q1 (\u2212{FMT['q2020']}% year-on-year) and 2022Q2 reflect COVID-19 control measures; they are "
      f"real events and are retained and interpreted rather than removed.")
-body("Handling principle: retain genuine outliers with interpretation; never impute absent months; validate every "
-     "construction step against the officially published cumulative totals.")
+body("Handling principle: retain genuine outliers with interpretation and do not impute absent months. Quarterly "
+     "differences from 2000 onward telescope to December cumulative values by definition; that accounting identity "
+     "is not independent validation.")
 
 heading("5.  Analysis Goals and Preliminary Analysis Plan")
 body("Analysis goals: (i) understand the temporal structure through plots, ACF/PACF and stationarity tests, with "

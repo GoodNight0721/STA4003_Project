@@ -10,7 +10,7 @@ This project studies quarterly Chinese retail-sales forecasting and asks whether
 
 ## Current data
 
-The repository contains NBS retail-sales source series, a manufacturing PMI series, quarterly processed versions of retail sales and PMI, and annual Lunar New Year calendar metadata. Stage 1 will formally audit coverage, definitions, and construction.
+The repository contains NBS retail-sales and manufacturing-PMI source series, quarterly processed series, annual Lunar New Year calendar metadata, and a canonical quarterly analysis dataset. The Lunar New Year table is calendar metadata, not an NBS economic series.
 
 ## Repository structure
 
@@ -34,6 +34,17 @@ Activate the environment (`.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 python -m pip install -r requirements.txt
 ```
 
+## Reproduce Stage 1
+
+From the repository root:
+
+```bash
+python scripts/data/validate_data.py
+python scripts/data/build_analysis_dataset.py
+python scripts/data/validate_data.py
+pytest -q
+```
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -47,4 +58,4 @@ python -m pip install -r requirements.txt
 
 ## Current status
 
-**Stage 0 — repository bootstrap.** No substantive modeling results are reported here.
+**Stage 1 — data audit and canonical analysis dataset complete.** No modeling results are reported here.

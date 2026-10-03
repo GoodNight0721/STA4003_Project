@@ -1,0 +1,131 @@
+{
+  "analysis_dataset": {
+    "duplicate_count": 0,
+    "economic_variable_imputations": 0,
+    "filename": "analysis_quarterly.csv",
+    "first_quarter": "1994Q1",
+    "last_quarter": "2026Q2",
+    "pmi_lag1_missing_rows": 45,
+    "pmi_lag2_missing_rows": 46,
+    "pmi_missing_rows": 44,
+    "present": true,
+    "row_count": 130,
+    "sha256": "67fe49edfa1dd215e9258f18d0ecc8e6f2c98dfd153cf579d243bfeccee7ee76"
+  },
+  "calendar_metadata": {
+    "duplicate_date_count": 0,
+    "duplicate_year_count": 0,
+    "filename": "lunar_new_year.csv",
+    "first_year": 1994,
+    "last_year": 2026,
+    "row_count": 33,
+    "source_note": "Deterministic Lunar New Year calendar metadata; not an NBS economic series.",
+    "unique_year_count": 33,
+    "valid_months": [
+      1,
+      2
+    ]
+  },
+  "known_retail_vintage_comparisons": {
+    "2005": {
+      "cumulative_minus_current": 3490.0,
+      "current_period_annual_total": 63686.6,
+      "december_cumulative": 67176.6,
+      "difference_pct_of_cumulative": 5.1953,
+      "difference_pct_of_current": 5.48,
+      "unit": "RMB 100 million (亿元)"
+    },
+    "2011": {
+      "cumulative_minus_current": 315.7,
+      "current_period_annual_total": 180910.1,
+      "december_cumulative": 181225.8,
+      "difference_pct_of_cumulative": 0.1742,
+      "difference_pct_of_current": 0.1745,
+      "unit": "RMB 100 million (亿元)"
+    }
+  },
+  "processed": {
+    "pmi_quarterly": {
+      "duplicate_count": 0,
+      "filename": "pmi_quarterly.csv",
+      "first_quarter": "2005Q1",
+      "last_quarter": "2026Q2",
+      "max_abs_reconstruction_difference": 0.003333333333,
+      "missing_value_count": 0,
+      "reconstruction_pass": true,
+      "reconstruction_tolerance": 0.0050001,
+      "row_count": 86,
+      "unit": "PMI index value (%)"
+    },
+    "retail_quarterly": {
+      "duplicate_count": 0,
+      "filename": "retail_quarterly.csv",
+      "first_quarter": "1994Q1",
+      "last_quarter": "2026Q2",
+      "max_abs_reconstruction_difference": 4.4e-11,
+      "max_log_rounding_difference": 4.99751e-07,
+      "missing_value_count": 0,
+      "reconstruction_pass": true,
+      "reconstruction_tolerance": 0.0500001,
+      "retail_unit": "RMB 100 million (亿元), unchanged from the source series",
+      "row_count": 130
+    }
+  },
+  "raw": {
+    "manuf_pmi": {
+      "documented_missingness": "No missing monthly values are expected within the observed PMI range.",
+      "duplicate_count": 0,
+      "filename": "manuf_pmi.csv",
+      "missing_count": 0,
+      "non_missing_count": 260,
+      "observed_end": "202608",
+      "observed_start": "200501",
+      "row_count": 260,
+      "row_end": "202608",
+      "row_start": "200501",
+      "unit": "%"
+    },
+    "retail_sales_cumulative": {
+      "documented_gap_count": 87,
+      "documented_missingness": "Values begin in 2000; January cumulative rows are unavailable from 2012 under the Jan-Feb convention.",
+      "duplicate_count": 0,
+      "filename": "retail_sales_cumulative.csv",
+      "missing_count": 87,
+      "non_missing_count": 305,
+      "observed_end": "202608",
+      "observed_start": "200001",
+      "row_count": 392,
+      "row_end": "202608",
+      "row_start": "199401",
+      "unit": "亿元"
+    },
+    "retail_sales_monthly": {
+      "documented_gap_count": 30,
+      "documented_missingness": "Separate January and February values are not published from 2012; NBS reports them jointly.",
+      "duplicate_count": 0,
+      "filename": "retail_sales_monthly.csv",
+      "missing_count": 30,
+      "non_missing_count": 362,
+      "observed_end": "202608",
+      "observed_start": "199401",
+      "row_count": 392,
+      "row_end": "202608",
+      "row_start": "199401",
+      "unit": "亿元"
+    },
+    "retail_sales_yoy": {
+      "documented_gap_count": 102,
+      "documented_missingness": "Values begin in 2000; Jan-Feb growth values are unavailable from 2012 under the combined reporting convention.",
+      "duplicate_count": 0,
+      "filename": "retail_sales_yoy.csv",
+      "missing_count": 102,
+      "non_missing_count": 290,
+      "observed_end": "202608",
+      "observed_start": "200001",
+      "row_count": 392,
+      "row_end": "202608",
+      "row_start": "199401",
+      "unit": "%"
+    }
+  }
+}

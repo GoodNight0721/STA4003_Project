@@ -6,7 +6,7 @@ spot-checked against known official dates: 2012-01-23, 2016-02-08, 2020-01-25,
 
 Construction rules
 ------------------
-Retail sales (current-period, CNY bn):
+Retail sales (current-period, RMB 100 million; 亿元):
   * 1994M1-2011M12: NBS publishes a separate value every month; quarterly value =
     sum of the three monthly values.
   * 2012M1+ : NBS publishes Jan and Feb only as a combined "Jan-Feb" total.  The
@@ -16,8 +16,9 @@ Retail sales (current-period, CNY bn):
         Q2(y) = cum(Jun, y) - cum(Mar, y)
         Q3(y) = cum(Sep, y) - cum(Jun, y)
         Q4(y) = cum(Dec, y) - cum(Sep, y)
-    For 2000-2011 the same cumulative-difference formula is used for consistency and
-    reproduces the monthly sums exactly.  For 1994-1999 monthly sums are used.
+    For 2000-2011 the same cumulative-difference formula is used for consistency.
+    The current-period and cumulative vintages differ in some years, so these values
+    need not reproduce the separate monthly sums.  For 1994-1999 monthly sums are used.
   * Last complete quarter = 2026Q2 (2026M9 not yet published).
 
 PMI (manufacturing PMI, %): quarterly = mean of the three monthly PMI values; starts
@@ -68,9 +69,9 @@ def qkey(y, q):
 
 
 def main():
-    monthly = read_csv(os.path.join(RAW, "retail_sales_monthly.csv"))   # yyyymm -> bn
-    cumul = read_csv(os.path.join(RAW, "retail_sales_cumulative.csv"))  # yyyymm -> bn
-    pmi_m = read_csv(os.path.join(RAW, "manuf_pmi.csv"))                # yyyymm -> %
+    monthly = read_csv(RAW / "retail_sales_monthly.csv")   # yyyymm -> 亿元
+    cumul = read_csv(RAW / "retail_sales_cumulative.csv")  # yyyymm -> 亿元
+    pmi_m = read_csv(RAW / "manuf_pmi.csv")                # yyyymm -> %
 
     # ---- CNY meta table ----
     with open(META / "lunar_new_year.csv", "w", newline="", encoding="utf-8") as f:
@@ -80,11 +81,11 @@ def main():
             w.writerow([y, CNY[y], int(CNY[y][5:7])])
 
     # ---- quarterly retail ----
-    # 2000+ : cumulative-differences (telescope exactly to the published cumulative
-    #         annual totals); 1994-1999 : monthly sums (no cumulative series).
+    # 2000+ : cumulative-differences; 1994-1999 : monthly sums (no cumulative series).
+    # The quarterly sum equals December cumulative by construction, not independently.
     # NOTE: the separate "当期值" (current-month) series disagrees with the cumulative
-    #       vintage in a few early years (2005 ~5%, 2011 ~0.2% mainly Q1); we prefer
-    #       the cumulative vintage because it matches the official annual totals.
+    #       vintage in a few early years (2005 ~5%, 2011 ~0.2% mainly Q1); the project
+    #       uses cumulative values from 2000 onward as its defined construction source.
     ret = {}
     for y in range(1994, 2026 + 1):
         for q in range(1, 5):
@@ -163,9 +164,10 @@ def main():
     rep.append("Known data-quality notes:")
     rep.append("  1. Since 2012, NBS publishes Jan & Feb retail only as a combined Jan-Feb total;")
     rep.append("     the current-month series has no separate Jan/Feb values for 2012+.")
-    rep.append("  2. The 'current-month' and 'cumulative' (vintage) series disagree in a few years")
-    rep.append("     (2005 ~5.2% annual; 2011 ~0.2%, mainly Q1); the cumulative vintage matches the")
-    rep.append("     officially published annual totals, so it is used for 2000+.")
+    rep.append("  2. The 'current-month' and 'cumulative' vintages disagree in a few years")
+    rep.append("     (2005 ~5.2% annual; 2011 ~0.2%, mainly Q1); cumulative values are the chosen")
+    rep.append("     source for 2000+. Quarter sums telescope to December cumulative by construction;")
+    rep.append("     this is internal accounting consistency, not independent validation.")
     rep.append("  3. Retail series revised per 5th Economic Census; since 2025 growth rates are on a")
     rep.append("     comparable basis (see NBS metadata annotation).")
 
@@ -175,7 +177,7 @@ def main():
     for y in range(1994, last_year):
         if all(qkey(y, q) in all_q for q in range(1, 5)):
             annual[y] = sum(all_q[qkey(y, q)] for q in range(1, 5))
-    rep.append(f"Annual retail totals {min(annual)}-{max(annual)} (bn CNY); value at {max(annual)}: {annual[max(annual)]:,.0f}")
+    rep.append(f"Annual retail totals {min(annual)}-{max(annual)} (RMB 100 million; 亿元); value at {max(annual)}: {annual[max(annual)]:,.0f}")
 
     # 3) CNY evidence, monthly era (1994-2011): Feb/Jan ratio by CNY month
     feb_jan = {}
@@ -191,7 +193,7 @@ def main():
     rep.append("Chinese New Year effect, monthly era 1994-2011 (Jan/Feb published separately):")
     rep.append(f"  mean Feb/Jan retail ratio, CNY-in-Jan years (n={len(jan_cny)}): {mj:.3f}")
     rep.append(f"  mean Feb/Jan retail ratio, CNY-in-Feb years (n={len(feb_cny)}): {mf:.3f}")
-    rep.append(f"  => Feb exceeds Jan share of combined total by {100*(mf-mj):.0f}ppt on average when CNY falls in February")
+    rep.append(f"  => Mean Feb/Jan ratio is {mf-mj:.3f} higher when CNY falls in February")
 
     # 4) CNY evidence, quarterly era (2012-2025): Q1 share of annual
     q1share = {}

@@ -3,22 +3,22 @@ Sources: NBS National Data (国家数据), region=全国
 
 Retail quarterly: n=130, 1994Q1..2026Q2, missing=[]
 PMI quarterly: n=86, 2005Q1..2026Q2
-Cumulative consistency: max |sum(Q1..Q4) - cum(Dec)|/cum(Dec) over 2000-2025 = 0
-  (construction telescopes to cum(Dec) by definition for 2000+; residual from 1994-99 monthly sums)
+Cumulative construction check: max |sum(Q1..Q4) - cum(Dec)|/cum(Dec) over 2000-2025 = 0
+  (From 2000 onward, differences telescope to cum(Dec); this is internal accounting consistency, not independent validation.)
 Known data-quality notes:
   1. Since 2012, NBS publishes Jan & Feb retail only as a combined Jan-Feb total;
      the current-month series has no separate Jan/Feb values for 2012+.
-  2. The 'current-month' and 'cumulative' (vintage) series disagree in a few years
-     (2005 ~5.2% annual; 2011 ~0.2%, mainly Q1); the cumulative vintage matches the
-     officially published annual totals, so it is used for 2000+.
+  2. The 'current-month' and 'cumulative' vintages disagree in a few years
+     (2005 ~5.2% annual; 2011 ~0.2%, mainly Q1); cumulative values are the selected
+     construction source for 2000 onward. Their annual equality is by construction.
   3. Retail series revised per 5th Economic Census; since 2025 growth rates are on a
      comparable basis (see NBS metadata annotation).
-Annual retail totals 1994-2025 (bn CNY); value at 2025: 501,202
+Annual retail totals 1994-2025 (RMB 100 million; 亿元); value at 2025: 501,202
 
 Chinese New Year effect, monthly era 1994-2011 (Jan/Feb published separately):
   mean Feb/Jan retail ratio, CNY-in-Jan years (n=6): 0.909
   mean Feb/Jan retail ratio, CNY-in-Feb years (n=12): 0.949
-  => Feb exceeds Jan share of combined total by 4ppt on average when CNY falls in February
+  => Mean Feb/Jan ratio is 0.040 higher when CNY falls in February
 
 Chinese New Year effect, quarterly era 2012-2025 (only joint Jan-Feb published):
   mean Q1 share of annual retail, CNY-in-Jan years (n=6): 23.4%
