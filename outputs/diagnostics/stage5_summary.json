@@ -1,0 +1,266 @@
+{
+  "stage": 5,
+  "response": "log_retail",
+  "evaluation_window": {
+    "start": "2005Q1",
+    "end": "2026Q2"
+  },
+  "horizons": [
+    1,
+    2
+  ],
+  "primary_result": {
+    "horizon": 2,
+    "scope": "all"
+  },
+  "prespecified_subgroup": {
+    "horizon": 2,
+    "scope": "q1"
+  },
+  "rolling_fit_count": {
+    "origins_attempted": 87,
+    "successful": 87,
+    "failed": 0,
+    "optimizer_attempts": 89,
+    "same_protocol_retries_after_initial_nonconvergence": 2
+  },
+  "locked_order_source": "outputs/tables/sarima_origin_selection.csv; one Stage 4 order read per origin; no order search.",
+  "cny_regressor": "is_q1 * (cny_position_fraction - mean training Q1 cny_position_fraction through origin); same training center used for future exog.",
+  "future_information": "Only deterministic, ex-ante-known CNY calendar fields are used for future exog; no future retail or PMI observation enters fitting or prediction.",
+  "forecast_convention": {
+    "response": "log_retail",
+    "level_median": "exp(forecast_log_mean)",
+    "primary_level_forecast": "exp(forecast_log_mean + 0.5 * forecast_log_variance)",
+    "scoring": "All MAE/RMSE/MASE use bias-corrected conditional-mean level forecast.",
+    "mase": "Stage 4 saved origin-specific training-only seasonal-period-4 scale reused by exact horizon/target."
+  },
+  "rolling_coefficient_summary": {
+    "n_origins": 87,
+    "positive_count": 73,
+    "negative_count": 14,
+    "zero_count": 0,
+    "sign_changes_in_origin_order": 7,
+    "one_nonzero_sign_only": false,
+    "mean": 0.04357883719311332,
+    "median": 0.030420586254822385,
+    "minimum": -0.02548511370873784,
+    "maximum": 0.136356372651739,
+    "range": 0.16184148636047685
+  },
+  "metrics": [
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "all",
+      "n": 86,
+      "MAE": 2309.51639669962,
+      "RMSE": 4414.06593434743,
+      "MASE": 0.741472688496016
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "q1",
+      "n": 22,
+      "MAE": 4016.81503864181,
+      "RMSE": 7066.40102748026,
+      "MASE": 1.20485275048176
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "all",
+      "n": 86,
+      "MAE": 2970.23648767577,
+      "RMSE": 5115.52282129222,
+      "MASE": 0.947892964636097
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "q1",
+      "n": 22,
+      "MAE": 3824.03509401562,
+      "RMSE": 7159.17120761125,
+      "MASE": 1.10858269171151
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 1,
+      "scope": "all",
+      "n": 86,
+      "MAE": 2248.0327979962617,
+      "RMSE": 4346.705725622578,
+      "MASE": 0.7282435980907443
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 1,
+      "scope": "q1",
+      "n": 22,
+      "MAE": 3926.5239484706544,
+      "RMSE": 7008.544674060488,
+      "MASE": 1.1820830767009152
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 2,
+      "scope": "all",
+      "n": 86,
+      "MAE": 2965.729670009468,
+      "RMSE": 5021.59283475077,
+      "MASE": 0.9464068387948061
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 2,
+      "scope": "q1",
+      "n": 22,
+      "MAE": 3852.965790488772,
+      "RMSE": 7044.617744300992,
+      "MASE": 1.1085369350036653
+    }
+  ],
+  "incremental_comparison": [
+    {
+      "horizon": 1,
+      "scope": "all",
+      "n": 86,
+      "baseline_MAE": 2309.51639669962,
+      "baseline_RMSE": 4414.06593434743,
+      "baseline_MASE": 0.741472688496016,
+      "cny_MAE": 2248.0327979962617,
+      "cny_RMSE": 4346.705725622578,
+      "cny_MASE": 0.7282435980907443,
+      "delta_MAE": -61.48359870335844,
+      "delta_RMSE": -67.36020872485187,
+      "delta_MASE": -0.013229090405271648,
+      "percent_change_MAE": -2.662184983454573,
+      "percent_change_RMSE": -1.526035399713854,
+      "percent_change_MASE": -1.784164219467772
+    },
+    {
+      "horizon": 1,
+      "scope": "q1",
+      "n": 22,
+      "baseline_MAE": 4016.81503864181,
+      "baseline_RMSE": 7066.40102748026,
+      "baseline_MASE": 1.20485275048176,
+      "cny_MAE": 3926.5239484706544,
+      "cny_RMSE": 7008.544674060488,
+      "cny_MASE": 1.1820830767009152,
+      "delta_MAE": -90.2910901711557,
+      "delta_RMSE": -57.85635341977195,
+      "delta_MASE": -0.022769673780844935,
+      "percent_change_MAE": -2.2478279259202703,
+      "percent_change_RMSE": -0.8187527596406793,
+      "percent_change_MASE": -1.8898304188408488
+    },
+    {
+      "horizon": 2,
+      "scope": "all",
+      "n": 86,
+      "baseline_MAE": 2970.23648767577,
+      "baseline_RMSE": 5115.52282129222,
+      "baseline_MASE": 0.947892964636097,
+      "cny_MAE": 2965.729670009468,
+      "cny_RMSE": 5021.59283475077,
+      "cny_MASE": 0.9464068387948061,
+      "delta_MAE": -4.50681766630214,
+      "delta_RMSE": -93.92998654145049,
+      "delta_MASE": -0.0014861258412908196,
+      "percent_change_MAE": -0.15173262078632518,
+      "percent_change_RMSE": -1.8361756915732623,
+      "percent_change_MASE": -0.15678203096077986
+    },
+    {
+      "horizon": 2,
+      "scope": "q1",
+      "n": 22,
+      "baseline_MAE": 3824.03509401562,
+      "baseline_RMSE": 7159.17120761125,
+      "baseline_MASE": 1.10858269171151,
+      "cny_MAE": 3852.965790488772,
+      "cny_RMSE": 7044.617744300992,
+      "cny_MASE": 1.1085369350036653,
+      "delta_MAE": 28.93069647315224,
+      "delta_RMSE": -114.55346331025794,
+      "delta_MASE": -4.575670784467967e-05,
+      "percent_change_MAE": 0.7565489270333058,
+      "percent_change_RMSE": -1.6000939213252896,
+      "percent_change_MASE": -0.004127496143209413
+    }
+  ],
+  "paired_absolute_error_wins": [
+    {
+      "horizon": 1,
+      "scope": "all",
+      "n": 86,
+      "absolute_error_win_count": 45,
+      "absolute_error_win_rate": 0.5232558139534884,
+      "ties": 0
+    },
+    {
+      "horizon": 1,
+      "scope": "q1",
+      "n": 22,
+      "absolute_error_win_count": 13,
+      "absolute_error_win_rate": 0.5909090909090909,
+      "ties": 0
+    },
+    {
+      "horizon": 2,
+      "scope": "all",
+      "n": 86,
+      "absolute_error_win_count": 44,
+      "absolute_error_win_rate": 0.5116279069767442,
+      "ties": 0
+    },
+    {
+      "horizon": 2,
+      "scope": "q1",
+      "n": 22,
+      "absolute_error_win_count": 13,
+      "absolute_error_win_rate": 0.5909090909090909,
+      "ties": 0
+    }
+  ],
+  "full_sample_descriptive_fit": {
+    "order": "(0,1,1)",
+    "seasonal_order": "(1,0,1,4)",
+    "beta": 0.09920830453502587,
+    "beta_se": 0.05326176687932053,
+    "beta_pvalue": 0.06251079933936064,
+    "aic": -416.9149303622361,
+    "aicc": -416.4310593944941,
+    "baseline_stage4_aicc": -415.54403022223295,
+    "delta_aicc": -0.8870291722611796,
+    "ljung_box_lag8_pvalue": 0.6880175122400705,
+    "converged": true,
+    "descriptive_only": true,
+    "oos_evidence": false
+  },
+  "interpretation": {
+    "primary_endpoint": "h=2 all remains primary; h=2 Q1 is a prespecified subgroup.",
+    "coefficient": "Conditional log-response association for Q1 timing after the fixed SARIMA dynamics; not causal evidence.",
+    "p_values": "Coefficient p-values and full-sample AICc are descriptive and are not the forecasting-value criterion."
+  },
+  "scope": {
+    "pmi": false,
+    "order_search": false,
+    "oos_based_cny_redesign": false,
+    "final_future_forecast": false
+  },
+  "generated_artifacts": [
+    "outputs\\forecasts\\sarima_cny_rolling_forecasts.csv",
+    "outputs\\tables\\cny_metrics.csv",
+    "outputs\\tables\\cny_incremental_comparison.csv",
+    "outputs\\tables\\cny_paired_errors.csv",
+    "outputs\\tables\\cny_coefficient_stability.csv",
+    "outputs\\tables\\cny_full_sample_diagnostics.csv",
+    "outputs\\diagnostics\\stage5_summary.json",
+    "outputs\\figures\\cny_h2_q1_actual_vs_forecasts.png",
+    "outputs\\figures\\cny_h2_paired_absolute_error_difference.png",
+    "outputs\\figures\\cny_rolling_beta.png"
+  ]
+}

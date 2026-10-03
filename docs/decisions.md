@@ -45,3 +45,13 @@
 - Reuse Stage 3 targets, horizons, training-only seasonal MASE scales, and metric implementation.
 - Treat the 1994Q1–2026Q2 selected fit as descriptive residual diagnostics only; do not use it for rolling forecasts.
 - Stage 4 uses no CNY or PMI regressors, ARIMAX, ETS/Theta, or final future forecast.
+
+## 2026-10-03 — Stage 5 Lunar New Year incremental-value analysis
+
+- Freeze the exact Stage 4 AICc-selected SARIMA order separately at each of its 87 unique rolling origins. Stage 5 performs no order search and does not change the Stage 4 candidate family.
+- Add exactly one exogenous variable to the same state-space SARIMAX error structure: `is_q1 * (cny_position_fraction - center_T)`, where `center_T` is the mean CNY fraction among Q1 observations in that origin's training sample. Non-Q1 values are exactly zero; use the same center for forecast-step exog.
+- Future `is_q1` and CNY-position values are allowed because the calendar is deterministic and known at the forecast origin. Do not use future retail or PMI observations. Do not add PMI or redesign the CNY variable based on OOS results.
+- Preserve the Stage 3/4 targets, horizons, bias-corrected lognormal level forecast, and exact Stage 4 origin-specific training-only seasonal MASE scales. Keep h = 2, all targets as the primary endpoint and h = 2, Q1 as the prespecified subgroup.
+- If L-BFGS does not report convergence at its first Stage 4-configured attempt, permit one continuation from that attempt's terminal parameters with the same method and settings. Report any retry; do not fall back to the baseline. Stop with an origin-specific failure if it still does not converge.
+- Treat rolling coefficient estimates, paired target wins, coefficient p-values, and the separate full-sample AICc/residual diagnostics as descriptive. Judge forecasting value only from the fixed-protocol OOS comparison; make no causal claim.
+- Stage 5 adds no PMI, alternate SARIMA orders, other forecasting models, or final future forecast.

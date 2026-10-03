@@ -73,6 +73,14 @@ Stage 3 fixes an expanding-window evaluation protocol and evaluates only the thr
 
 Stage 4 applies training-only AICc selection to the fixed SARIMA candidate family at each Stage 3 origin. The full-sample fit is descriptive only.
 
+## Reproduce Stage 5
+
+    python scripts/modeling/backtest_cny.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 5 reads and freezes each Stage 4 rolling order, then adds one Q1-only, training-centered Lunar New Year timing regressor. Future exogenous values use only deterministic calendar metadata known at the origin. The primary comparison remains h = 2 across all targets; h = 2 Q1 is a prespecified subgroup. See [docs/stage5_cny_incremental_value.md](docs/stage5_cny_incremental_value.md).
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -86,4 +94,4 @@ Stage 4 applies training-only AICc selection to the fixed SARIMA candidate famil
 
 ## Current status
 
-**Stage 4 — leak-free SARIMA baseline complete.** No CNY/PMI regressors or final future forecast are included.
+**Stage 5 — Lunar New Year incremental-value analysis complete.** No PMI regressor or final future forecast is included.
