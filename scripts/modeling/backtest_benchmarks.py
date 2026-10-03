@@ -163,10 +163,12 @@ def _validate_forecasts(forecasts: pd.DataFrame) -> None:
         _require(all(items == model_targets[0] for items in model_targets[1:]), f"Models do not share targets at h={horizon}")
 
 
-def compute_metrics(forecasts: pd.DataFrame) -> pd.DataFrame:
-    """Report only MAE, RMSE, and origin-scaled seasonal MASE."""
+def compute_metrics(
+    forecasts: pd.DataFrame, models: tuple[str, ...] = BENCHMARKS
+) -> pd.DataFrame:
+    """Report MAE, RMSE, and origin-scaled seasonal MASE for requested models."""
     rows: list[dict[str, object]] = []
-    for model in BENCHMARKS:
+    for model in models:
         for horizon in HORIZONS:
             model_horizon = forecasts.loc[
                 (forecasts["model"] == model) & (forecasts["horizon"] == horizon)

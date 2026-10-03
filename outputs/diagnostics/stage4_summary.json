@@ -1,0 +1,362 @@
+{
+  "stage": 4,
+  "response": "log_retail",
+  "forecast_scoring_scale": "Original retail level in RMB 100 million (亿元).",
+  "evaluation_window": {
+    "start": "2005Q1",
+    "end": "2026Q2"
+  },
+  "horizons": [
+    1,
+    2
+  ],
+  "primary_horizon": 2,
+  "secondary_horizon": 1,
+  "primary_scope": "all",
+  "seasonal_period": 4,
+  "candidate_family": {
+    "model": "statsmodels state-space SARIMAX",
+    "nonseasonal_p_values": [
+      0,
+      1,
+      2
+    ],
+    "d": 1,
+    "nonseasonal_q_values": [
+      0,
+      1,
+      2
+    ],
+    "seasonal_P_values": [
+      0,
+      1
+    ],
+    "seasonal_D_values": [
+      0,
+      1
+    ],
+    "seasonal_Q_values": [
+      0,
+      1
+    ],
+    "complexity_cap": "p + q + P + Q <= 3",
+    "candidate_count": 46,
+    "trend": "n",
+    "simple_differencing": false,
+    "exogenous_variables": false,
+    "enforce_stationarity": true,
+    "enforce_invertibility": true
+  },
+  "selection_rule": "For each unique rolling origin, fit all valid candidates on 1994Q1 through that origin and select the lowest training-sample AICc.",
+  "aicc_convention": {
+    "formula": "AICc = AIC + 2*k*(k+1)/(n-k-1)",
+    "k": "Number of actually estimated parameters, including the innovation variance.",
+    "n": "State-space training nobs, required to equal the origin training-sample length.",
+    "invalid_if": "n-k-1 <= 0, non-finite likelihood/AIC/AICc, fit exception, or non-convergence."
+  },
+  "rolling_selection": {
+    "unique_origins": 87,
+    "candidate_fits_attempted": 4002,
+    "successful_fit_count": 3894,
+    "failed_fit_count": 108,
+    "selected_D_frequency": {
+      "0": 87,
+      "1": 0
+    },
+    "selected_order_frequency": [
+      {
+        "selection_type": "order",
+        "selected_order": "(0,1,1)",
+        "selected_seasonal_order": "(1,0,1,4)",
+        "selected_D": 0,
+        "count": 39,
+        "share": 0.4482758620689655
+      },
+      {
+        "selection_type": "order",
+        "selected_order": "(1,1,0)",
+        "selected_seasonal_order": "(1,0,1,4)",
+        "selected_D": 0,
+        "count": 38,
+        "share": 0.4367816091954023
+      },
+      {
+        "selection_type": "order",
+        "selected_order": "(0,1,0)",
+        "selected_seasonal_order": "(1,0,0,4)",
+        "selected_D": 0,
+        "count": 4,
+        "share": 0.04597701149425287
+      },
+      {
+        "selection_type": "order",
+        "selected_order": "(1,1,0)",
+        "selected_seasonal_order": "(1,0,0,4)",
+        "selected_D": 0,
+        "count": 4,
+        "share": 0.04597701149425287
+      },
+      {
+        "selection_type": "order",
+        "selected_order": "(0,1,0)",
+        "selected_seasonal_order": "(1,0,1,4)",
+        "selected_D": 0,
+        "count": 1,
+        "share": 0.011494252873563218
+      },
+      {
+        "selection_type": "order",
+        "selected_order": "(0,1,1)",
+        "selected_seasonal_order": "(1,0,0,4)",
+        "selected_D": 0,
+        "count": 1,
+        "share": 0.011494252873563218
+      }
+    ]
+  },
+  "full_sample_descriptive_selection": {
+    "selected_order": "(0,1,1)",
+    "selected_seasonal_order": "(1,0,1,4)",
+    "selected_D": 0,
+    "aic": -415.86403022223294,
+    "aicc": -415.54403022223295,
+    "candidate_count": 46,
+    "successful_fit_count": 44,
+    "failed_fit_count": 2,
+    "ljung_box_lag": 8,
+    "ljung_box_model_df": 3,
+    "ljung_box_statistic": 2.6129938631386627,
+    "ljung_box_pvalue": 0.7593900333935205,
+    "residual_mean": -0.0005732817361844648,
+    "residual_std": 0.050560172798900634,
+    "parameter_estimates": {
+      "ar.S.L4": 0.9824497731640474,
+      "ma.L1": -0.36640757598544504,
+      "ma.S.L4": -0.6131840311557993,
+      "sigma2": 0.0020571201695943424
+    },
+    "descriptive_only": true,
+    "used_for_rolling_forecasts": false
+  },
+  "retransformation": {
+    "primary_forecast": "exp(forecast_log_mean + 0.5 * forecast_log_variance)",
+    "saved_median": "exp(forecast_log_mean)",
+    "scoring_uses": "Bias-corrected conditional-mean level forecast."
+  },
+  "mase_convention": {
+    "reused_from": "Stage 3 build_rolling_forecasts and compute_metrics",
+    "seasonal_period": 4,
+    "origin_specific_training_only_scale": true
+  },
+  "metrics": [
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2309.5163966996206,
+      "RMSE": 4414.0659343474335,
+      "MASE": 0.7414726884960159
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4016.8150386418147,
+      "RMSE": 7066.401027480257,
+      "MASE": 1.2048527504817619
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2970.236487675771,
+      "RMSE": 5115.522821292216,
+      "MASE": 0.9478929646360971
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 3824.035094015616,
+      "RMSE": 7159.171207611254,
+      "MASE": 1.1085826917115071
+    }
+  ],
+  "benchmark_comparison": [
+    {
+      "model": "Historical Mean",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 47207.245806516745,
+      "RMSE": 53145.07558653068,
+      "MASE": 14.353622666916296
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 45153.51137954821,
+      "RMSE": 50923.38808802113,
+      "MASE": 13.869712135170897
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 47701.428112267604,
+      "RMSE": 53655.681384940995,
+      "MASE": 14.752579744936725
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 45709.8738317095,
+      "RMSE": 51500.6588268013,
+      "MASE": 14.312040976085193
+    },
+    {
+      "model": "Naive",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5298.705813953488,
+      "RMSE": 7938.618521030083,
+      "MASE": 1.5999263560847354
+    },
+    {
+      "model": "Naive",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6709.55,
+      "RMSE": 10341.699102991646,
+      "MASE": 1.8655444043937004
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 6914.048837209303,
+      "RMSE": 9376.886379283904,
+      "MASE": 2.2039488757085013
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4905.250000000001,
+      "RMSE": 6476.380129186928,
+      "MASE": 1.793972207919579
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5991.502325581395,
+      "RMSE": 7023.886268083841,
+      "MASE": 2.1948214319643853
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6967.468181818182,
+      "RMSE": 8851.867312067809,
+      "MASE": 2.4292976482435638
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5991.502325581395,
+      "RMSE": 7023.886268083841,
+      "MASE": 2.246348816311543
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6967.468181818182,
+      "RMSE": 8851.867312067809,
+      "MASE": 2.488017817179082
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2309.5163966996206,
+      "RMSE": 4414.0659343474335,
+      "MASE": 0.7414726884960159
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4016.8150386418147,
+      "RMSE": 7066.401027480257,
+      "MASE": 1.2048527504817619
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2970.236487675771,
+      "RMSE": 5115.522821292216,
+      "MASE": 0.9478929646360971
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 3824.035094015616,
+      "RMSE": 7159.171207611254,
+      "MASE": 1.1085826917115071
+    }
+  ],
+  "leakage_safeguards": [
+    "A selector receives only the log_retail Series ending at its origin.",
+    "The candidate is selected by training-sample AICc, never by target actual or OOS error.",
+    "Selection runs once per unique origin; its fitted result supplies all horizons needed at that origin.",
+    "The full-sample descriptive fit is separate and is never used for rolling forecasts.",
+    "The Stage 3 target window, origins, and MASE scale implementation are reused."
+  ],
+  "scope": {
+    "cny_regressors": false,
+    "pmi_regressors": false,
+    "arimax": false,
+    "ets_or_theta": false,
+    "oos_order_tuning": false,
+    "final_future_forecast": false
+  },
+  "generated_artifacts": [
+    "outputs/forecasts/sarima_rolling_forecasts.csv",
+    "outputs/tables/sarima_origin_selection.csv",
+    "outputs/tables/sarima_order_frequency.csv",
+    "outputs/tables/sarima_full_sample_diagnostics.csv",
+    "outputs/tables/sarima_metrics.csv",
+    "outputs/tables/model_comparison_stage4.csv",
+    "outputs/figures/sarima_h2_actual_vs_forecast.png",
+    "outputs/figures/sarima_h2_errors.png",
+    "outputs/figures/sarima_full_sample_residual_diagnostics.png",
+    "outputs/diagnostics/stage4_summary.json"
+  ]
+}

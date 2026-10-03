@@ -35,3 +35,13 @@
 - Calculate seasonal MASE with period 4 and an origin-specific denominator using only seasonal differences within that origin's training sample. No full-sample denominator is allowed.
 - Report all and the pre-specified Q1 target subgroup; the primary comparison is h = 2, scope all.
 - Stage 3 establishes reference performance only. It performs no SARIMA/model-order selection, AIC/AICc ranking, CNY or PMI predictive test, or final forecast.
+
+## 2026-10-03 — Stage 4 leak-free SARIMA baseline
+
+- Fix the SARIMA candidate family to SARIMA(p,1,q)(P,D,Q)[4], with p,q in {0,1,2}, P,Q,D in {0,1}, and p+q+P+Q <= 3; use d = 1 and no trend/drift or exogenous variables.
+- Select one candidate at each unique Stage 3 origin using only that origin's training sample and minimum AICc. Do not use rolling OOS error to tune p,q,P,Q,D or the candidate family.
+- Use statsmodels state-space SARIMAX with simple_differencing = False and the same deterministic specification for all candidates.
+- Score level forecasts using exp(mu_log + 0.5 * forecast_variance_log); save exp(mu_log) as the median but do not use it for primary scoring.
+- Reuse Stage 3 targets, horizons, training-only seasonal MASE scales, and metric implementation.
+- Treat the 1994Q1–2026Q2 selected fit as descriptive residual diagnostics only; do not use it for rolling forecasts.
+- Stage 4 uses no CNY or PMI regressors, ARIMAX, ETS/Theta, or final future forecast.

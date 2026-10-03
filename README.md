@@ -65,6 +65,14 @@ Stage 2 outputs include descriptive figures and tables, stationarity tests, and 
 
 Stage 3 fixes an expanding-window evaluation protocol and evaluates only the three pre-specified level benchmarks. The common target window is 2005Q1–2026Q2; h = 2 is primary and h = 1 is secondary. See docs/evaluation_protocol.md and docs/stage3_evaluation_benchmarks.md.
 
+## Reproduce Stage 4
+
+    python scripts/modeling/backtest_sarima.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 4 applies training-only AICc selection to the fixed SARIMA candidate family at each Stage 3 origin. The full-sample fit is descriptive only.
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -78,4 +86,4 @@ Stage 3 fixes an expanding-window evaluation protocol and evaluates only the thr
 
 ## Current status
 
-**Stage 3 — rolling-origin framework and benchmarks complete.** No SARIMA selection or CNY/PMI predictive-value result is reported here.
+**Stage 4 — leak-free SARIMA baseline complete.** No CNY/PMI regressors or final future forecast are included.
