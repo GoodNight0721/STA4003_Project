@@ -74,3 +74,14 @@
 - Keep h=2, all targets as the primary endpoint. The shock sensitivity is not a replacement endpoint, and neither full-sample descriptive fit statistics nor the sensitivity results tune or refit any model.
 - The fixed ETS fit converged at all 87 unique origins. It is behind both Stage 4 SARIMA and Stage 5 SARIMA+CNY on h=2 all-target MAE, RMSE, and MASE. Excluding the two shock targets lowers h=2 all-target RMSE for SARIMA, SARIMA+CNY, and ETS; the already small CNY deltas remain mixed, so this sensitivity does not support a consistent incremental-value claim.
 - Stage 6B produces a full-sample descriptive ETS fit only, with no full-sample forecast; no PMI, alternate ETS family, or final future forecast is added.
+
+## 2026-10-03 — Stage 7 final forecast and report
+
+- Retain plain SARIMA as the final primary forecaster because it beats the three simple benchmarks and fixed ETS on the primary h=2 all-target comparison; CNY's small gains are mixed and do not survive the preset-shock sensitivity consistently; lag-2 PMI does not improve its distinct secondary-window comparison.
+- Freeze the final primary order at Stage 4's full-sample selection, SARIMA(0,1,1)(1,0,1)[4]. Refit that order on `log_retail` from 1994Q1 through 2026Q2 (130 observations). Stage 7 performs no candidate search and supplies no CNY or PMI exogenous variable to the primary model.
+- Set the final forecast origin to 2026Q2 and the only targets to 2026Q3 (h=1) and 2026Q4 (h=2). Do not extend the primary horizon beyond those quarters.
+- Report the lognormal median as `exp(mu)`, the conditional-mean point forecast as `exp(mu + 0.5 * v)`, and the 80%/95% predictive quantiles as `exp(mu +/- z * sqrt(v))`; the half-variance adjustment applies only to the conditional-mean point forecast.
+- Refit SARIMA+CNY with the Stage 5 training-centered Q1 timing definition and fixed ETS(A,Ad,A) with period 4 only as supplementary forecasts. The target CNY regressor is zero for both non-Q1 forecast quarters. Do not ensemble or reselect the primary model.
+- Keep the PMI result labeled as the 2010Q4–2026Q2 secondary window. Do not use the Stage 5 full-sample CNY coefficient as out-of-sample evidence, describe the February/January retail ratio as a share, or promote shock-excluded scores to the primary endpoint.
+- Freeze SHA-256 hashes for the Stage 0–6B tracked data and outputs in `docs/stage7_protected_artifact_sha256.json`; Stage 7 verifies that these artifacts remain unchanged.
+- Stage 7 completes the future forecast, final report, supplementary model forecasts, diagnostics, summary outputs, and reproducibility checks. No post-hoc model search or additional research stage is authorized by this decision.

@@ -1,0 +1,7 @@
+model,target,horizon,forecast_level,forecast_convention,exogenous_regressors,target_cny_regressor,converged
+SARIMA,2026Q3,1,124179.56785323676,exp(log mean + 0.5 * log forecast variance),none,,True
+SARIMA+CNY,2026Q3,1,123542.83066291282,exp(log mean + 0.5 * log forecast variance),cny_regressor,0,True
+ETS,2026Q3,1,125265.6617011023,exp(log forecast) * mean(exp(training residuals)),none,,True
+SARIMA,2026Q4,2,139562.25689500856,exp(log mean + 0.5 * log forecast variance),none,,True
+SARIMA+CNY,2026Q4,2,138822.30253841699,exp(log mean + 0.5 * log forecast variance),cny_regressor,0,True
+ETS,2026Q4,2,141597.80734805754,exp(log forecast) * mean(exp(training residuals)),none,,True

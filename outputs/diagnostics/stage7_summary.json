@@ -1,0 +1,425 @@
+{
+  "candidate_search_performed": false,
+  "cny_conclusion": {
+    "conclusion": "No material or consistently positive incremental out-of-sample forecasting improvement under the prespecified protocol; this is not a claim that CNY has no effect.",
+    "full_sample_beta_used_as_oos_evidence": false,
+    "primary_window_h2_all_delta_cny_minus_sarima": {
+      "MAE": -4.506817666300321,
+      "MASE": -0.0014861258412909306,
+      "RMSE": -93.92998654145049
+    },
+    "shock_sensitivity_delta_cny_minus_sarima": {
+      "exclude_shocks": {
+        "MAE": 2.04594097636937,
+        "MASE": 0.0001044403213299,
+        "RMSE": -86.8663113773673
+      },
+      "full": {
+        "MAE": -4.5068176663126,
+        "MASE": -0.0014861258412926,
+        "RMSE": -93.929986541476
+      }
+    },
+    "source_files": [
+      "outputs/tables/cny_metrics.csv",
+      "outputs/tables/cny_shock_sensitivity.csv"
+    ]
+  },
+  "ets_robustness_conclusion": {
+    "conclusion": "The fixed ETS comparator improves on simple benchmarks but has higher h=2 all-target errors than SARIMA.",
+    "h2_all": {
+      "MAE": 3242.31926143174,
+      "MASE": 1.05975993511162,
+      "RMSE": 5211.83647730642,
+      "horizon": 2,
+      "interpretation": "Fixed supplementary ETS; below SARIMA on the primary endpoint",
+      "model": "ETS",
+      "n": 86,
+      "scope": "all",
+      "source_file": "outputs/tables/ets_metrics.csv",
+      "study/sample": "Primary 2005Q1-2026Q2"
+    },
+    "shock_targets": [
+      "2020Q1",
+      "2022Q2"
+    ],
+    "source_file": "outputs/tables/ets_metrics.csv",
+    "specification": "ETS(A,Ad,A), seasonal period 4"
+  },
+  "final_model_diagnostics": {
+    "AIC": -415.86403022223294,
+    "AICc": -415.54403022223295,
+    "ar.S.L4": 0.9824497731640474,
+    "converged": true,
+    "ljung_box_lag": 8,
+    "ljung_box_model_df": 3,
+    "ljung_box_n_residuals": 129,
+    "ljung_box_pvalue": 0.7593900333935205,
+    "ljung_box_statistic": 2.6129938631386627,
+    "ma.L1": -0.36640757598544504,
+    "ma.S.L4": -0.6131840311557993,
+    "model": "SARIMA",
+    "model_spec": "SARIMA(0,1,1)(1,0,1)[4]",
+    "n": 130,
+    "order": "(0,1,1)",
+    "primary_exog_variables": "none",
+    "residual_mean": -0.0005732817361844648,
+    "residual_std": 0.050560172798900634,
+    "seasonal_order": "(1,0,1,4)",
+    "seasonal_period": 4,
+    "sigma2": 0.0020571201695943424,
+    "training_end": "2026Q2",
+    "training_start": "1994Q1"
+  },
+  "final_order": {
+    "label": "SARIMA(0,1,1)(1,0,1)[4]",
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "source": "outputs/diagnostics/stage4_summary.json:full_sample_descriptive_selection",
+    "stage4_aicc": -415.54403022223295
+  },
+  "fit_settings": {
+    "enforce_invertibility": true,
+    "enforce_stationarity": true,
+    "maxiter": 100,
+    "optimizer": "lbfgs",
+    "simple_differencing": false,
+    "trend": "n"
+  },
+  "forecast_convention": {
+    "intervals": "exp(log forecast mean +/- normal quantile * sqrt(log forecast variance)); no 0.5 variance shift",
+    "median": "exp(log forecast mean)",
+    "parameter_uncertainty_included": false,
+    "primary_point_forecast": "exp(log forecast mean + 0.5 * log forecast variance)"
+  },
+  "forecast_origin": "2026Q2",
+  "forecasts": [
+    {
+      "forecast_level_mean": 124179.56785323676,
+      "forecast_level_median": 124051.90734321604,
+      "forecast_log_mean": 11.728455364602034,
+      "forecast_log_variance": 0.0020571206157391636,
+      "horizon": 1,
+      "lower_80": 117046.89709863064,
+      "lower_95": 113500.2404745411,
+      "model": "SARIMA",
+      "origin": "2026Q2",
+      "target": "2026Q3",
+      "upper_80": 131476.15269563513,
+      "upper_95": 135584.52080056773
+    },
+    {
+      "forecast_level_mean": 139562.25689500856,
+      "forecast_level_median": 139361.22773101457,
+      "forecast_log_mean": 11.844824601828053,
+      "forecast_log_variance": 0.002882929690514885,
+      "horizon": 2,
+      "lower_80": 130094.2355601491,
+      "lower_95": 125440.69948397636,
+      "model": "SARIMA",
+      "origin": "2026Q2",
+      "target": "2026Q4",
+      "upper_80": 149288.33480647302,
+      "upper_95": 154826.55848213434
+    }
+  ],
+  "generated_artifacts": [
+    "outputs/forecasts/final_forecast.csv",
+    "outputs/tables/final_model_diagnostics.csv",
+    "outputs/tables/final_forecast_supplementary.csv",
+    "outputs/tables/final_results_summary.csv",
+    "outputs/figures/final_forecast.png",
+    "docs/final_report.md",
+    "outputs/reports/STA4003_Final_Report.docx"
+  ],
+  "historical_oos_metrics": {
+    "models": [
+      {
+        "MAE": 47701.4281122676,
+        "MASE": 14.7525797449367,
+        "RMSE": 53655.681384941,
+        "horizon": 2,
+        "interpretation": "Historical level benchmark",
+        "model": "Historical Mean",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/benchmark_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      },
+      {
+        "MAE": 6914.0488372093,
+        "MASE": 2.2039488757085,
+        "RMSE": 9376.8863792839,
+        "horizon": 2,
+        "interpretation": "Last observed level benchmark",
+        "model": "Naive",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/benchmark_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      },
+      {
+        "MAE": 5991.50232558139,
+        "MASE": 2.24634881631154,
+        "RMSE": 7023.88626808384,
+        "horizon": 2,
+        "interpretation": "Same-quarter prior-year benchmark",
+        "model": "Seasonal Naive",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/benchmark_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      },
+      {
+        "MAE": 2970.23648767577,
+        "MASE": 0.947892964636097,
+        "RMSE": 5115.52282129222,
+        "horizon": 2,
+        "interpretation": "Primary fixed-protocol seasonal ARIMA baseline",
+        "model": "SARIMA",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/sarima_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      },
+      {
+        "MAE": 2965.72967000947,
+        "MASE": 0.946406838794806,
+        "RMSE": 5021.59283475077,
+        "horizon": 2,
+        "interpretation": "Supplementary; incremental changes are small and mixed",
+        "model": "SARIMA+CNY",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/cny_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      },
+      {
+        "MAE": 3242.31926143174,
+        "MASE": 1.05975993511162,
+        "RMSE": 5211.83647730642,
+        "horizon": 2,
+        "interpretation": "Fixed supplementary ETS; below SARIMA on the primary endpoint",
+        "model": "ETS",
+        "n": 86,
+        "scope": "all",
+        "source_file": "outputs/tables/ets_metrics.csv",
+        "study/sample": "Primary 2005Q1-2026Q2"
+      }
+    ],
+    "primary_horizon": 2,
+    "primary_scope": "all",
+    "primary_window": "2005Q1-2026Q2",
+    "source_files": [
+      "outputs/tables/benchmark_metrics.csv",
+      "outputs/tables/sarima_metrics.csv",
+      "outputs/tables/cny_metrics.csv",
+      "outputs/tables/ets_metrics.csv"
+    ]
+  },
+  "pdf_status": {
+    "converter": "Microsoft Word",
+    "converter_available": false,
+    "converter_installed": true,
+    "generated": false,
+    "output": null,
+    "reason": "Microsoft Word is installed, but COM PDF export could not start because this process has no active Windows logon session (HRESULT 0x80070520).",
+    "runtime_tested": true
+  },
+  "pmi_conclusion": {
+    "common_sarima": {
+      "MAE": 3459.95777895147,
+      "MASE": 0.549654350537093,
+      "RMSE": 5906.20021846377,
+      "horizon": 2,
+      "model": "SARIMA-common",
+      "n": 63,
+      "scope": "all"
+    },
+    "conclusion": "Lag-2 PMI does not improve the secondary-window h=2 all-target MAE, RMSE, or MASE.",
+    "horizon": 2,
+    "n": 63,
+    "sarima_plus_pmi": {
+      "MAE": 3512.17413909169,
+      "MASE": 0.558121648467839,
+      "RMSE": 5926.59142318686,
+      "horizon": 2,
+      "interpretation": "Secondary window; does not improve on SARIMA-common",
+      "model": "SARIMA+PMI",
+      "n": 63,
+      "scope": "all",
+      "source_file": "outputs/tables/pmi_metrics.csv",
+      "study/sample": "Stage 6A secondary 2010Q4-2026Q2"
+    },
+    "scope": "all",
+    "source_file": "outputs/tables/pmi_metrics.csv",
+    "window": "2010Q4-2026Q2"
+  },
+  "primary_exog_variables": [],
+  "primary_model": "SARIMA",
+  "primary_model_reason": [
+    "SARIMA materially outperforms Historical Mean, Naive, and Seasonal Naive at h=2 across all primary-window targets.",
+    "Fixed ETS improves on the simple benchmarks but has higher h=2 all-target errors than SARIMA.",
+    "CNY changes are very small and mixed across metrics; after preset-shock target exclusion, the MAE and MASE reductions disappear.",
+    "The fixed PMI lag-2 extension does not improve the separate secondary-window h=2 all-target metrics.",
+    "The parsimonious Stage 4 full-sample SARIMA order is retained without a post-hoc order search."
+  ],
+  "protected_artifacts": {
+    "checked_count": 67,
+    "manifest": "docs/stage7_protected_artifact_sha256.json",
+    "sha256": {
+      "data/meta/FETCH_REPORT.txt": "be382922457c703082ecab2b84a2711e5324a157cd424db847ec1fcbd2a0d808",
+      "data/meta/lunar_new_year.csv": "1ccdc200211dd7078a4c18d55af2ed1f0fc36d13176091c6a9a4fa5c0d7e4f83",
+      "data/processed/analysis_quarterly.csv": "67fe49edfa1dd215e9258f18d0ecc8e6f2c98dfd153cf579d243bfeccee7ee76",
+      "data/processed/pmi_quarterly.csv": "fe28a55b5930f109af503f453b4d363f776666b3498e8bdc45dabe87318e16e9",
+      "data/processed/retail_quarterly.csv": "f37ca402b1fadff9623de0992e082433b8201233083ea86cd1ab761eb168be8f",
+      "data/raw/manuf_pmi.csv": "91a0dcef73203c899dae66f29c5bd3ee782634b426fa30c2254f2c00133c55d5",
+      "data/raw/retail_sales_cumulative.csv": "acd8324d62385c82904c881733b0cea90450b6d3385e4859443f49308f4554d0",
+      "data/raw/retail_sales_monthly.csv": "84235b512644eab245d42999a4569e824e5d0f90e08455308d653438511c7ba3",
+      "data/raw/retail_sales_yoy.csv": "60595092960ca4f25eedce84e4c1aad03f53fb90c0114da907a810cf27296429",
+      "outputs/diagnostics/VERIFICATION.txt": "a164a22e52ba0601d5a7e0b987716e728382550090571367cea694e368f1c57b",
+      "outputs/diagnostics/data_audit.json": "7d267ceccad1fec1a96fd0661daff5d9e2dd40c630e6936053579141c265493c",
+      "outputs/diagnostics/stage2_summary.json": "cfd458a0a81cb38eb55ad20f8ab0c3c51b4c4067a37b14501a45666811c788ae",
+      "outputs/diagnostics/stage3_summary.json": "eaf7eea5b0ec41eef7d2202e4a8b50f3f70d0c47005c40757d98621183a8d8b5",
+      "outputs/diagnostics/stage4_summary.json": "e51b688c850260554be0fd9abd8aba1cadc1b666f3bb2011d7936d1f9578d179",
+      "outputs/diagnostics/stage5_summary.json": "206d00dc65dd07048f44cdb8d0d798c656dd1217218648a06adef5d31d6112a7",
+      "outputs/diagnostics/stage6a_summary.json": "0229e81b73134804149b3424b1797860d2346fd754597cb68d77b1a5f7136dea",
+      "outputs/diagnostics/stage6b_summary.json": "319ceab9ace4d929a9332d833f27f890bf2d13fa0681d44c97d6c0087861cdf9",
+      "outputs/figures/acf_pacf_combined_difference.png": "7c1dd11ac90c4f99ba0c5de4dc4bfb9823ca1cf2c86723f55325742473d1237f",
+      "outputs/figures/acf_pacf_first_difference.png": "44afbad7fcd29013ef131e233ed0a3583798328719505e53f9ee2d1ee4314114",
+      "outputs/figures/acf_pacf_log_retail.png": "39ec175e894a4f8d3a50ca8c8cb1f44a7834bd81a87423e887f83180ccde3f8e",
+      "outputs/figures/acf_pacf_seasonal_difference.png": "e76fa8f1e7b8fad3475b3caaf3979face2894d46eb2594a2ec50c16c65827201",
+      "outputs/figures/benchmark_h2_actual_vs_forecasts.png": "2e1dd0a72952dd252dc25fb46034dc7951275bb295783bc6b7615e975c7fe933",
+      "outputs/figures/benchmark_h2_errors.png": "573f102df387183cb9da60eae9ba59cc0029dbbd4e0b7ed5f352b1a4a33db805",
+      "outputs/figures/cny_h2_paired_absolute_error_difference.png": "aa7fb641db4df743ed3b2fe7a329eed09800a8956d6eca184920fe77606f5022",
+      "outputs/figures/cny_h2_q1_actual_vs_forecasts.png": "504589744a808ceae23eb393b3d120090766a45443c2e1895d982dee62dccccf",
+      "outputs/figures/cny_q1_descriptive.png": "e8798edf1003cd1b74b80f181802d50ad195ce5f39b34b52c913eaa4b21995f8",
+      "outputs/figures/cny_rolling_beta.png": "5b64088a44d2db7820559b0b3b0b3a01070162778477a4e29c7f21e1361499d0",
+      "outputs/figures/ets_h2_actual_vs_forecast.png": "6dde2a7d29e42870038d99bee36a68a8784182efbfd41740b93df623b885250f",
+      "outputs/figures/log_retail.png": "cf2d4b05c19a422e4162584639ee92dd3ecf90ce6fc0e0408464993fe0c402e1",
+      "outputs/figures/retail_level.png": "9c41de8dd774d9f9bfe8adc79752678f5eb36ba1dab3978f699b082b24a717a6",
+      "outputs/figures/rolling_scale_comparison.png": "001bb572c3f16b77e9e233b6d9e016b7e44d9a2a7bfc38fd2b1cd9b942a769af",
+      "outputs/figures/sarima_full_sample_residual_diagnostics.png": "d3e9cfbeba61d9ebdf81ade0a7f9bc27d9aa094d026814b660f43c4fbce351d6",
+      "outputs/figures/sarima_h2_actual_vs_forecast.png": "1b9e999496908d75b18abbb69596270099642fa8b833ccc5b0403343195cb203",
+      "outputs/figures/sarima_h2_errors.png": "bd3526fbf1d415bb97f71e4d5aba921cd72ea38ec3b0ccc4b280b6cc52f4f484",
+      "outputs/figures/seasonal_distribution_log.png": "6af2261ada68a0fafc5c26cb125ebe8f5a1a240f47e3f0add96dfff745a71b94",
+      "outputs/figures/seasonal_subseries_log.png": "54b97e4e76d7884b19ad22446b888ba520330a2494e4c3c6c38751472a94c84e",
+      "outputs/forecasts/benchmark_rolling_forecasts.csv": "702a6fae50d21b1cb16780a0907be4e324564cd75fe2f294cfc6f574a8fb2558",
+      "outputs/forecasts/ets_rolling_forecasts.csv": "67189756151a67fa48175f641ef5aa6b995267e267e728ecb75ce5f5e90ed2ab",
+      "outputs/forecasts/pmi_rolling_forecasts.csv": "0cb867097a063c43260d677d605e5cb53b317372a04443c169d26fdf1ab994e9",
+      "outputs/forecasts/sarima_cny_rolling_forecasts.csv": "fac269ff8ab28c2817c7cd8480f3cf25204552c59bd185d268305a20b3fd7cdf",
+      "outputs/forecasts/sarima_rolling_forecasts.csv": "1d7f2837e57bdae41563121e86d8e09ad5566ab4c35531d63c9549ff7ad13de1",
+      "outputs/tables/benchmark_metrics.csv": "2ec548ff81dbb2de4f8e9b34aebb126179c54c5fd0348ef666bfd96b82030ef2",
+      "outputs/tables/cny_coefficient_stability.csv": "38169d72ca580457c296fb6fd2791bef03cacfb4f44b29729cb495455078391f",
+      "outputs/tables/cny_full_sample_diagnostics.csv": "c0bf387475577ec53984e5caef3c5278c120d4d14105aedaa8fc6ba1cd54a211",
+      "outputs/tables/cny_incremental_comparison.csv": "8843d73154a70ab6347cf5e29d4a57b41f4cee55c427aa4496a9cd62c8925b12",
+      "outputs/tables/cny_metrics.csv": "29f124cbbfe4183ca4799369df528f88be288ac37dc79e5dc23faf0a1c37a15c",
+      "outputs/tables/cny_paired_errors.csv": "683aec2215b7e6c49dfbcf618971d71c71c9cc64a4db32449bbe0d29a2fd97ee",
+      "outputs/tables/cny_q1_descriptive.csv": "1289699960c171b2ac4ce274bbf1f78093476638913bd7e49597a0aebd6a91e7",
+      "outputs/tables/cny_shock_sensitivity.csv": "3f17516f64061f9dd4a2bf1e700674d962e662e105505ad961fa33fc61c8f040",
+      "outputs/tables/ets_full_sample_diagnostics.csv": "238de87860e21e9e86523cd26fd58688452dcdecd25cdce5fa929b3fa2bfe549",
+      "outputs/tables/ets_metrics.csv": "a6f3e994ab79df354e80f6714fded0cc073f05c8811c7bb074be347038d676c5",
+      "outputs/tables/model_comparison_stage4.csv": "b24f9df4a66656e806d9af3b67e06562390375d07932903ea122d3f8c715aaf7",
+      "outputs/tables/model_comparison_stage6b.csv": "70229942cb3c443585e95e6e16b721253dbfe4d21d7b6fa94ae5f4ed1360277c",
+      "outputs/tables/pmi_coefficient_stability.csv": "5b494f4d86e728785303ba3827bb12093c6f484b1def6a67e235010fd740fc1f",
+      "outputs/tables/pmi_incremental_comparison.csv": "a34fd1c4d06d7fe5953b92cf0f2f18f81646700568d18eade8ccb3c56f194a83",
+      "outputs/tables/pmi_metrics.csv": "cd4398c69bf75be58048322694d2669cc10908c83856dc02baba96c23dfb1736",
+      "outputs/tables/sarima_full_sample_diagnostics.csv": "af413bef43125a9661fc58fc75b4ee6135ccb0868e59e07174a529f075203ec2",
+      "outputs/tables/sarima_metrics.csv": "1e4e4004f19bdaec22782711883b274391ef52e0af0d5a146ea2d03bb54b9785",
+      "outputs/tables/sarima_order_frequency.csv": "6115ded0d416668c11b9941e92b144d55d504375fa7bd8372cce38fc43ed8af7",
+      "outputs/tables/sarima_origin_selection.csv": "60f2263f31bf3083606fac798cc98664b33874b7d1534ea57a5235eacb5c9e24",
+      "outputs/tables/seasonal_summary.csv": "50b54a85e2a1f9cc358d30e605100e6a358decb1d7b89338c76bdae64bcdfdb1",
+      "outputs/tables/shock_sensitivity_metrics.csv": "04a8109a1ce4b71661d501850128e651173b784da2608146e6532fe8b740789d",
+      "outputs/tables/stationarity_tests.csv": "99ff94ffe39e6c7c82b5e167393708a6e574a2dc3d1bfad3dfa60f303a131901",
+      "outputs/tables/transformation_summary.csv": "b5e38e942bd8ebff9474799b186826a810f3c9853c4a11a66acc7517a64a259c",
+      "proposal/Figure1.png": "086238bd5397b13e8c2a612f66ef7a699463301ee8147cd3830723f375e170e4",
+      "proposal/Proposal_gpX.docx": "01448c45fa8cf47487e30a2625d8c5128e8e8efc41d5a34ab01f029d0c05609c",
+      "proposal/Proposal_gpX_TEMPLATE.docx": "f9beae3d2bfa1b2a06c00f94c3df392759baf3c19be1a7d7d0954748037d0840"
+    },
+    "unchanged": true
+  },
+  "response": "log_retail",
+  "stage": 7,
+  "stage_name": "Final forecast and report",
+  "supplementary_forecasts": [
+    {
+      "converged": true,
+      "exogenous_regressors": "none",
+      "forecast_convention": "exp(log mean + 0.5 * log forecast variance)",
+      "forecast_level": 124179.56785323676,
+      "horizon": 1,
+      "model": "SARIMA",
+      "target": "2026Q3",
+      "target_cny_regressor": null
+    },
+    {
+      "converged": true,
+      "exogenous_regressors": "cny_regressor",
+      "forecast_convention": "exp(log mean + 0.5 * log forecast variance)",
+      "forecast_level": 123542.83066291282,
+      "horizon": 1,
+      "model": "SARIMA+CNY",
+      "target": "2026Q3",
+      "target_cny_regressor": 0.0
+    },
+    {
+      "converged": true,
+      "exogenous_regressors": "none",
+      "forecast_convention": "exp(log forecast) * mean(exp(training residuals))",
+      "forecast_level": 125265.6617011023,
+      "horizon": 1,
+      "model": "ETS",
+      "target": "2026Q3",
+      "target_cny_regressor": null
+    },
+    {
+      "converged": true,
+      "exogenous_regressors": "none",
+      "forecast_convention": "exp(log mean + 0.5 * log forecast variance)",
+      "forecast_level": 139562.25689500856,
+      "horizon": 2,
+      "model": "SARIMA",
+      "target": "2026Q4",
+      "target_cny_regressor": null
+    },
+    {
+      "converged": true,
+      "exogenous_regressors": "cny_regressor",
+      "forecast_convention": "exp(log mean + 0.5 * log forecast variance)",
+      "forecast_level": 138822.302538417,
+      "horizon": 2,
+      "model": "SARIMA+CNY",
+      "target": "2026Q4",
+      "target_cny_regressor": 0.0
+    },
+    {
+      "converged": true,
+      "exogenous_regressors": "none",
+      "forecast_convention": "exp(log forecast) * mean(exp(training residuals))",
+      "forecast_level": 141597.80734805754,
+      "horizon": 2,
+      "model": "ETS",
+      "target": "2026Q4",
+      "target_cny_regressor": null
+    }
+  ],
+  "targets": [
+    "2026Q3",
+    "2026Q4"
+  ],
+  "training": {
+    "end": "2026Q2",
+    "future_economic_observations_used": false,
+    "n": 130,
+    "start": "1994Q1"
+  }
+}

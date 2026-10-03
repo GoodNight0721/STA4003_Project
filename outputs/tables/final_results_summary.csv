@@ -1,0 +1,8 @@
+study/sample,model,horizon,scope,n,MAE,RMSE,MASE,interpretation,source_file
+Primary 2005Q1-2026Q2,Historical Mean,2,all,86,47701.428112267597,53655.681384941003,14.7525797449367,Historical level benchmark,outputs/tables/benchmark_metrics.csv
+Primary 2005Q1-2026Q2,Naive,2,all,86,6914.0488372092996,9376.8863792839002,2.2039488757085,Last observed level benchmark,outputs/tables/benchmark_metrics.csv
+Primary 2005Q1-2026Q2,Seasonal Naive,2,all,86,5991.5023255813903,7023.8862680838402,2.2463488163115399,Same-quarter prior-year benchmark,outputs/tables/benchmark_metrics.csv
+Primary 2005Q1-2026Q2,SARIMA,2,all,86,2970.2364876757701,5115.5228212922202,0.94789296463609696,Primary fixed-protocol seasonal ARIMA baseline,outputs/tables/sarima_metrics.csv
+Primary 2005Q1-2026Q2,SARIMA+CNY,2,all,86,2965.7296700094698,5021.5928347507697,0.94640683879480603,Supplementary; incremental changes are small and mixed,outputs/tables/cny_metrics.csv
+Primary 2005Q1-2026Q2,ETS,2,all,86,3242.31926143174,5211.8364773064204,1.05975993511162,Fixed supplementary ETS; below SARIMA on the primary endpoint,outputs/tables/ets_metrics.csv
+Stage 6A secondary 2010Q4-2026Q2,SARIMA+PMI,2,all,63,3512.17413909169,5926.5914231868601,0.55812164846783896,Secondary window; does not improve on SARIMA-common,outputs/tables/pmi_metrics.csv

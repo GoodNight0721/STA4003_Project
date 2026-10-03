@@ -97,6 +97,15 @@ Stage 6A evaluates only the fixed, leak-free PMI lag-2 regressor on the secondar
 
 Stage 6B adds one fixed ETS(A,Ad,A) supplementary model to the Stage 3 rolling window and runs target-only sensitivity scoring for the preset 2020Q1 and 2022Q2 shocks. Shock sensitivity leaves the original forecast records and every model fit unchanged; h = 2 across all targets remains primary. See [docs/stage6b_robustness.md](docs/stage6b_robustness.md).
 
+## Reproduce Stage 7
+
+    python scripts/modeling/final_forecast.py
+    python scripts/reporting/build_final_report.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 7 refits the Stage 4 full-sample frozen SARIMA order on all observations through 2026Q2 and forecasts only 2026Q3 and 2026Q4. SARIMA+CNY and fixed ETS forecasts are supplementary. The report includes the final point forecasts, predictive intervals, and traceable comparisons to the frozen Stage 1-6B results. DOCX-to-PDF conversion is skipped if no reliable local converter is available.
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -110,6 +119,6 @@ Stage 6B adds one fixed ETS(A,Ad,A) supplementary model to the Stage 3 rolling w
 
 ## Current status
 
-**Stage 6B — forecasting robustness analysis complete**
+**Stage 7 — final forecast and report complete**
 
-ETS and target-only shock sensitivity are supplementary; the Stage 5 primary endpoint and conclusion remain in force. No final future forecast is included.
+The primary final forecast uses the Stage 4 full-sample SARIMA order without a post-hoc search. CNY, PMI, ETS, and target-only shock sensitivity remain supplementary to the fixed h = 2 all-target evaluation.

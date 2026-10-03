@@ -1,0 +1,2 @@
+training_start,training_end,n,model,order,seasonal_order,model_spec,seasonal_period,AIC,AICc,ma.L1,ar.S.L4,ma.S.L4,sigma2,residual_mean,residual_std,ljung_box_lag,ljung_box_model_df,ljung_box_statistic,ljung_box_pvalue,ljung_box_n_residuals,converged,primary_exog_variables
+1994Q1,2026Q2,130,SARIMA,"(0,1,1)","(1,0,1,4)","SARIMA(0,1,1)(1,0,1)[4]",4,-415.86403022223294,-415.54403022223295,-0.36640757598544504,0.98244977316404736,-0.61318403115579934,0.0020571201695943424,-0.00057328173618446476,0.050560172798900634,8,3,2.6129938631386627,0.75939003339352051,129,True,none
