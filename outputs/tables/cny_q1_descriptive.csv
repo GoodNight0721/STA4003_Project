@@ -1,0 +1,2 @@
+n_q1_year_over_year_pairs,first_year,last_year,pearson_correlation_cny_position_vs_q1_yoy_log_growth,mean_q1_yoy_log_growth,sd_q1_yoy_log_growth,interpretation
+32,1995,2026,0.214878956581,0.1117871875,0.0893320710916,"Descriptive contemporaneous association only; no causal claim, significance test, or out-of-sample predictive evidence."

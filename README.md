@@ -45,6 +45,18 @@ python scripts/data/validate_data.py
 pytest -q
 ```
 
+## Reproduce Stage 2
+
+From the repository root:
+
+```bash
+python scripts/analysis/eda_stationarity.py
+pytest -q
+python -m compileall scripts tests
+```
+
+Stage 2 outputs include descriptive figures and tables, stationarity tests, and ACF/PACF diagnostics. They do not include fitted forecasting models or model-order selection.
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -58,4 +70,4 @@ pytest -q
 
 ## Current status
 
-**Stage 1 — data audit and canonical analysis dataset complete.** No modeling results are reported here.
+**Stage 2 — EDA and stationarity diagnostics complete.** No forecasting model or predictive-value result is reported here.

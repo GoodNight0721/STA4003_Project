@@ -1,0 +1,278 @@
+{
+  "acf_pacf": {
+    "diagnostics": {
+      "combined_difference": {
+        "acf_at_lags": {
+          "1": -0.33160268560244677,
+          "12": -0.02536527594262302,
+          "16": 0.05046427460024293,
+          "20": -0.030961194264034,
+          "4": -0.49211521440600353,
+          "8": 0.052188351190791245
+        },
+        "n_obs": 125
+      },
+      "first_difference": {
+        "acf_at_lags": {
+          "1": -0.24328565494205884,
+          "12": 0.7181139852267937,
+          "16": 0.692882885563498,
+          "20": 0.633542860441419,
+          "4": 0.7952947105588727,
+          "8": 0.7679994233128044
+        },
+        "n_obs": 129
+      },
+      "log_retail": {
+        "acf_at_lags": {
+          "1": 0.9763960354636176,
+          "12": 0.7638125033938096,
+          "16": 0.6836382344531949,
+          "20": 0.5988144343004907,
+          "4": 0.9194744122936448,
+          "8": 0.8415291744753232
+        },
+        "n_obs": 130
+      },
+      "seasonal_difference": {
+        "acf_at_lags": {
+          "1": 0.6654936268544922,
+          "12": 0.19016455751703343,
+          "16": 0.2085461184488051,
+          "20": 0.10976143660811638,
+          "4": 0.23715670740311906,
+          "8": 0.37739481348021864
+        },
+        "n_obs": 126
+      }
+    },
+    "interpretation": "ACF/PACF figures are structural diagnostics only; no ARMA or seasonal ARMA orders are selected.",
+    "maximum_lag_quarters": 20,
+    "seasonal_lags_examined": [
+      4,
+      8,
+      12,
+      16,
+      20
+    ]
+  },
+  "canonical_input": "data/processed/analysis_quarterly.csv",
+  "chosen_transformation": {
+    "decision": "Use log_retail as the working response for later modeling, while retaining the original level for interpretation.",
+    "rationale": "Level-scale volatility grows with the series; the log scale expresses changes proportionally and its rolling standard deviation tracks the level coefficient of variation. The log transform does not itself make the series stationary.",
+    "series": "log_retail"
+  },
+  "cny_q1_descriptive": {
+    "first_year": 1995,
+    "interpretation": "Descriptive contemporaneous association only; no causal claim, significance test, or out-of-sample predictive evidence.",
+    "last_year": 2026,
+    "mean_q1_yoy_log_growth": 0.1117871875,
+    "n_q1_year_over_year_pairs": 32,
+    "pearson_correlation_cny_position_vs_q1_yoy_log_growth": 0.2148789565806998,
+    "sd_q1_yoy_log_growth": 0.08933207109158542
+  },
+  "differencing_diagnostics": {
+    "combined_d1_D1_n_obs": 125,
+    "combined_difference_acf_lag1": -0.33160268560244677,
+    "combined_difference_acf_lag4": -0.49211521440600353,
+    "regular_d1_n_obs": 129,
+    "seasonal_D1_n_obs": 126
+  },
+  "differencing_recommendation": {
+    "conclusion": "A regular difference is a cautious working recommendation given the trend, but its ADF/KPSS results are inconclusive. Seasonal differencing alone remains non-stationary by the selected tests. Combined differencing passes both tests, but its negative lag-4 ACF raises a seasonal over-differencing concern; do not commit to D=1 from Stage 2 alone.",
+    "over_differencing_assessment": "The combined-difference ACF is -0.332 at lag 1 and -0.492 at lag 4. The lag-1 value is negative but not extreme; the seasonal-lag negative spike is a caution, not an automatic decision rule.",
+    "regular_d": 1,
+    "seasonal_D": null,
+    "seasonal_D_status": "not established; retain as unresolved for later modeling diagnostics"
+  },
+  "generated_artifacts": [
+    "outputs/figures/retail_level.png",
+    "outputs/figures/log_retail.png",
+    "outputs/figures/rolling_scale_comparison.png",
+    "outputs/figures/seasonal_subseries_log.png",
+    "outputs/figures/seasonal_distribution_log.png",
+    "outputs/figures/acf_pacf_log_retail.png",
+    "outputs/figures/acf_pacf_first_difference.png",
+    "outputs/figures/acf_pacf_seasonal_difference.png",
+    "outputs/figures/acf_pacf_combined_difference.png",
+    "outputs/figures/cny_q1_descriptive.png",
+    "outputs/tables/seasonal_summary.csv",
+    "outputs/tables/transformation_summary.csv",
+    "outputs/tables/stationarity_tests.csv",
+    "outputs/tables/cny_q1_descriptive.csv",
+    "outputs/diagnostics/stage2_summary.json"
+  ],
+  "n_obs": 130,
+  "pmi_coverage": {
+    "first_quarter": "2005Q1",
+    "last_quarter": "2026Q2",
+    "n_obs": 86,
+    "predictive_analysis_performed": false
+  },
+  "sample_range": {
+    "first_quarter": "1994Q1",
+    "last_quarter": "2026Q2"
+  },
+  "scope": {
+    "arma_orders_searched": false,
+    "cny_predictive_value_tested": false,
+    "forecasts_or_evaluation_performed": false,
+    "models_fitted": false,
+    "pmi_predictive_value_tested": false
+  },
+  "seasonal_period": 4,
+  "seasonality": {
+    "complete_year_count": 32,
+    "highest_mean_centered_quarter": "Q4",
+    "interpretation": "The report evaluates the complete-year centered log seasonal effects and their dispersion; these descriptive averages are not a forecasting model.",
+    "lowest_mean_centered_quarter": "Q2",
+    "mean_year_centered_log_deviation_by_quarter": {
+      "Q1": -0.050081023437500094,
+      "Q2": -0.06347183593749994,
+      "Q3": -0.021522023437499982,
+      "Q4": 0.13507488281250002
+    },
+    "share_complete_years_positive_by_quarter": {
+      "Q1": 0.0,
+      "Q2": 0.0,
+      "Q3": 0.0625,
+      "Q4": 1.0
+    },
+    "summary_table": "outputs/tables/seasonal_summary.csv"
+  },
+  "stationarity_test_settings": {
+    "adf_autolag": null,
+    "adf_maxlag": 8,
+    "adf_regression": {
+      "combined_difference": "c",
+      "first_difference": "c",
+      "log_retail": "ct",
+      "seasonal_difference": "c"
+    },
+    "kpss_nlags": "auto",
+    "kpss_regression": {
+      "combined_difference": "c",
+      "first_difference": "c",
+      "log_retail": "ct",
+      "seasonal_difference": "c"
+    },
+    "significance_level": 0.05
+  },
+  "stationarity_test_warnings": {
+    "combined_difference": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ],
+    "first_difference": [],
+    "log_retail": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is smaller than the p-value returned.\n"
+    ],
+    "seasonal_difference": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is smaller than the p-value returned.\n"
+    ]
+  },
+  "stationarity_tests": [
+    {
+      "adf_maxlag": 8,
+      "adf_n_obs": 121,
+      "adf_pvalue": 0.9952539210704621,
+      "adf_regression": "ct",
+      "adf_statistic": 0.11863471871861746,
+      "adf_usedlag": 8,
+      "interpretation": "ADF does not reject a unit root and KPSS rejects stationarity; evidence is consistent with non-stationarity under the stated deterministic terms.",
+      "kpss_nlags": 6,
+      "kpss_pvalue": 0.01,
+      "kpss_pvalue_note": "Reported at lower table bound; actual p-value is smaller.",
+      "kpss_regression": "ct",
+      "kpss_statistic": 0.3539273198743432,
+      "n_obs": 130,
+      "transformation": "log_retail"
+    },
+    {
+      "adf_maxlag": 8,
+      "adf_n_obs": 120,
+      "adf_pvalue": 0.2948028169909916,
+      "adf_regression": "c",
+      "adf_statistic": -1.981365842282812,
+      "adf_usedlag": 8,
+      "interpretation": "Neither null is rejected at five percent; the tests are inconclusive about stationarity.",
+      "kpss_nlags": 23,
+      "kpss_pvalue": 0.07054947727193406,
+      "kpss_pvalue_note": "",
+      "kpss_regression": "c",
+      "kpss_statistic": 0.415325212729113,
+      "n_obs": 129,
+      "transformation": "first_difference"
+    },
+    {
+      "adf_maxlag": 8,
+      "adf_n_obs": 117,
+      "adf_pvalue": 0.5479242389635552,
+      "adf_regression": "c",
+      "adf_statistic": -1.4707578744541434,
+      "adf_usedlag": 8,
+      "interpretation": "ADF does not reject a unit root and KPSS rejects stationarity; evidence is consistent with non-stationarity under the stated deterministic terms.",
+      "kpss_nlags": 5,
+      "kpss_pvalue": 0.01,
+      "kpss_pvalue_note": "Reported at lower table bound; actual p-value is smaller.",
+      "kpss_regression": "c",
+      "kpss_statistic": 0.8931613854411657,
+      "n_obs": 126,
+      "transformation": "seasonal_difference"
+    },
+    {
+      "adf_maxlag": 8,
+      "adf_n_obs": 116,
+      "adf_pvalue": 8.623537013133574e-06,
+      "adf_regression": "c",
+      "adf_statistic": -5.204116369953769,
+      "adf_usedlag": 8,
+      "interpretation": "ADF rejects a unit root and KPSS does not reject stationarity; evidence is consistent with stationarity under the stated deterministic terms.",
+      "kpss_nlags": 10,
+      "kpss_pvalue": 0.1,
+      "kpss_pvalue_note": "Reported at upper table bound; actual p-value is greater.",
+      "kpss_regression": "c",
+      "kpss_statistic": 0.08014639232207171,
+      "n_obs": 125,
+      "transformation": "combined_difference"
+    }
+  ],
+  "transformation_scale": {
+    "metrics": {
+      "level_rolling_cv": {
+        "first_quarter": "1998Q4",
+        "first_value": 0.22688059780533124,
+        "last_quarter": "2026Q2",
+        "last_value": 0.07434533907462473,
+        "maximum": 0.2700787409235359,
+        "median": 0.17314326390312193,
+        "minimum": 0.0718825477218882,
+        "n_windows": 111,
+        "window_quarters": 20
+      },
+      "level_rolling_sd": {
+        "first_quarter": "1998Q4",
+        "first_value": 1339.8456391453617,
+        "last_quarter": "2026Q2",
+        "last_value": 8839.534057169758,
+        "maximum": 13439.000435256143,
+        "median": 8942.912389435969,
+        "minimum": 922.2496268279048,
+        "n_windows": 111,
+        "window_quarters": 20
+      },
+      "log_rolling_sd": {
+        "first_quarter": "1998Q4",
+        "first_value": 0.24196406286082234,
+        "last_quarter": "2026Q2",
+        "last_value": 0.074568445944491,
+        "maximum": 0.27081993825273687,
+        "median": 0.17519490569091506,
+        "minimum": 0.07168142070997625,
+        "n_windows": 111,
+        "window_quarters": 20
+      }
+    },
+    "rolling_window_quarters": 20,
+    "summary_table": "outputs/tables/transformation_summary.csv"
+  }
+}
