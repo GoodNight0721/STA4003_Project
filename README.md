@@ -81,6 +81,14 @@ Stage 4 applies training-only AICc selection to the fixed SARIMA candidate famil
 
 Stage 5 reads and freezes each Stage 4 rolling order, then adds one Q1-only, training-centered Lunar New Year timing regressor. Future exogenous values use only deterministic calendar metadata known at the origin. The primary comparison remains h = 2 across all targets; h = 2 Q1 is a prespecified subgroup. See [docs/stage5_cny_incremental_value.md](docs/stage5_cny_incremental_value.md).
 
+## Reproduce Stage 6A
+
+    python scripts/modeling/backtest_pmi.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 6A evaluates only the fixed, leak-free PMI lag-2 regressor on the secondary 2010Q4–2026Q2 window. All compared SARIMA models use the exact Stage 4 order for each origin and are refit on the same 2005Q3-to-origin sample. The Stage 3/5 primary window and conclusions remain unchanged. See [docs/stage6a_pmi_extension.md](docs/stage6a_pmi_extension.md).
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -94,4 +102,4 @@ Stage 5 reads and freezes each Stage 4 rolling order, then adds one Q1-only, tra
 
 ## Current status
 
-**Stage 5 — Lunar New Year incremental-value analysis complete.** No PMI regressor or final future forecast is included.
+**Stage 6A — PMI extension complete.** The PMI results are a secondary study and do not replace the Stage 5 conclusion or include a final future forecast.
