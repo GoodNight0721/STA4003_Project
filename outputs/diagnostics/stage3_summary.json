@@ -1,0 +1,178 @@
+{
+  "stage": 3,
+  "evaluation_window": {
+    "start": "2005Q1",
+    "end": "2026Q2"
+  },
+  "horizons": [
+    1,
+    2
+  ],
+  "primary_horizon": 2,
+  "secondary_horizon": 1,
+  "primary_scope": "all",
+  "reporting_scopes": {
+    "all": "All targets in the fixed window.",
+    "q1": "Pre-specified Q1 target subgroup."
+  },
+  "target_count_per_model_horizon": {
+    "1": 86,
+    "2": 86
+  },
+  "benchmark_definitions": [
+    {
+      "model": "Historical Mean",
+      "forecast": "Arithmetic mean of retail_bn from 1994Q1 through the forecast origin."
+    },
+    {
+      "model": "Naive",
+      "forecast": "retail_bn observed at the forecast origin."
+    },
+    {
+      "model": "Seasonal Naive",
+      "forecast": "retail_bn observed four quarters before the target."
+    }
+  ],
+  "forecast_scale": "Original retail level in RMB 100 million (亿元).",
+  "mase_convention": {
+    "type": "seasonal MASE",
+    "seasonal_period": 4,
+    "origin_specific": true,
+    "training_only": true,
+    "scale": "Mean absolute difference retail_bn[t] - retail_bn[t-4] within the origin training sample.",
+    "scaled_absolute_error": "absolute_error divided by the origin-specific training-only MASE scale.",
+    "reported_mase": "Arithmetic mean of scaled_absolute_error over the requested model, horizon, and scope."
+  },
+  "metrics": [
+    {
+      "model": "Historical Mean",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 47207.245806516745,
+      "RMSE": 53145.07558653068,
+      "MASE": 14.353622666916296
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 45153.51137954821,
+      "RMSE": 50923.38808802113,
+      "MASE": 13.869712135170897
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 47701.428112267604,
+      "RMSE": 53655.681384940995,
+      "MASE": 14.752579744936725
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 45709.8738317095,
+      "RMSE": 51500.6588268013,
+      "MASE": 14.312040976085193
+    },
+    {
+      "model": "Naive",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5298.705813953488,
+      "RMSE": 7938.618521030083,
+      "MASE": 1.5999263560847354
+    },
+    {
+      "model": "Naive",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6709.55,
+      "RMSE": 10341.699102991646,
+      "MASE": 1.8655444043937004
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 6914.048837209303,
+      "RMSE": 9376.886379283904,
+      "MASE": 2.2039488757085013
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4905.250000000001,
+      "RMSE": 6476.380129186928,
+      "MASE": 1.793972207919579
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5991.502325581395,
+      "RMSE": 7023.886268083841,
+      "MASE": 2.1948214319643853
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6967.468181818182,
+      "RMSE": 8851.867312067809,
+      "MASE": 2.4292976482435638
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5991.502325581395,
+      "RMSE": 7023.886268083841,
+      "MASE": 2.246348816311543
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6967.468181818182,
+      "RMSE": 8851.867312067809,
+      "MASE": 2.488017817179082
+    }
+  ],
+  "leakage_safeguards": [
+    "For target t and horizon h, origin is t-h.",
+    "The expanding training sample starts at 1994Q1 and ends at the origin, inclusive.",
+    "Historical Mean and Naive use only that training sample.",
+    "Seasonal Naive uses t-4, which is at or before the origin for both evaluated horizons.",
+    "Each target's seasonal MASE scale uses only seasonal differences in that origin's training sample.",
+    "All three benchmarks use the same complete target quarters for each horizon."
+  ],
+  "scope": {
+    "sarima_or_other_fitted_model": false,
+    "model_order_search": false,
+    "cny_predictive_test": false,
+    "pmi_predictive_test": false,
+    "final_forecast": false
+  },
+  "generated_artifacts": [
+    "outputs/forecasts/benchmark_rolling_forecasts.csv",
+    "outputs/tables/benchmark_metrics.csv",
+    "outputs/figures/benchmark_h2_actual_vs_forecasts.png",
+    "outputs/figures/benchmark_h2_errors.png",
+    "outputs/diagnostics/stage3_summary.json"
+  ]
+}

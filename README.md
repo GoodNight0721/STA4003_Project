@@ -57,6 +57,14 @@ python -m compileall scripts tests
 
 Stage 2 outputs include descriptive figures and tables, stationarity tests, and ACF/PACF diagnostics. They do not include fitted forecasting models or model-order selection.
 
+## Reproduce Stage 3
+
+    python scripts/modeling/backtest_benchmarks.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 3 fixes an expanding-window evaluation protocol and evaluates only the three pre-specified level benchmarks. The common target window is 2005Q1–2026Q2; h = 2 is primary and h = 1 is secondary. See docs/evaluation_protocol.md and docs/stage3_evaluation_benchmarks.md.
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -70,4 +78,4 @@ Stage 2 outputs include descriptive figures and tables, stationarity tests, and 
 
 ## Current status
 
-**Stage 2 — EDA and stationarity diagnostics complete.** No forecasting model or predictive-value result is reported here.
+**Stage 3 — rolling-origin framework and benchmarks complete.** No SARIMA selection or CNY/PMI predictive-value result is reported here.

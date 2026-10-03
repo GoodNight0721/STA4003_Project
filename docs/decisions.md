@@ -26,3 +26,12 @@
 - Treat `d = 1` as a cautious provisional starting point because of the log-level trend, while acknowledging inconclusive ADF/KPSS results on the first difference. Do not establish `D = 1`: seasonal differencing alone remains non-stationary, and the combined difference's negative lag-4 ACF (-0.492) raises a possible seasonal over-differencing concern. Leave the final differencing choice unresolved for later diagnostics.
 - Stage 2 ACF/PACF plots are structural diagnostics only; no ARMA orders are selected. No forecasting model is fitted or evaluated.
 - The Q1 CNY-position versus Q1 year-over-year log-growth check is descriptive only (32 pairs; sample correlation 0.215); it is not causal or predictive evidence. PMI is described only by coverage; its predictive value is not tested.
+
+## 2026-10-03 — Stage 3 rolling-origin evaluation and benchmarks
+
+- Fix one expanding-window rolling-origin protocol for all future forecasts: the same target window of 2005Q1–2026Q2 (86 quarters) for both horizons, with origin t-h and training from 1994Q1 through the origin inclusive.
+- Use h = 2 as the primary horizon and h = 1 only as a secondary diagnostic. Do not change the primary target window based on PMI availability.
+- Evaluate exactly the pre-specified Historical Mean, Naive, and Seasonal Naive benchmarks, all on original retail_bn levels in RMB 100 million; do not add drift or other benchmarks.
+- Calculate seasonal MASE with period 4 and an origin-specific denominator using only seasonal differences within that origin's training sample. No full-sample denominator is allowed.
+- Report all and the pre-specified Q1 target subgroup; the primary comparison is h = 2, scope all.
+- Stage 3 establishes reference performance only. It performs no SARIMA/model-order selection, AIC/AICc ranking, CNY or PMI predictive test, or final forecast.
