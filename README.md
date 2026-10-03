@@ -89,6 +89,14 @@ Stage 5 reads and freezes each Stage 4 rolling order, then adds one Q1-only, tra
 
 Stage 6A evaluates only the fixed, leak-free PMI lag-2 regressor on the secondary 2010Q4–2026Q2 window. All compared SARIMA models use the exact Stage 4 order for each origin and are refit on the same 2005Q3-to-origin sample. The Stage 3/5 primary window and conclusions remain unchanged. See [docs/stage6a_pmi_extension.md](docs/stage6a_pmi_extension.md).
 
+## Reproduce Stage 6B
+
+    python scripts/modeling/backtest_ets.py
+    pytest -q
+    python -m compileall scripts tests
+
+Stage 6B adds one fixed ETS(A,Ad,A) supplementary model to the Stage 3 rolling window and runs target-only sensitivity scoring for the preset 2020Q1 and 2022Q2 shocks. Shock sensitivity leaves the original forecast records and every model fit unchanged; h = 2 across all targets remains primary. See [docs/stage6b_robustness.md](docs/stage6b_robustness.md).
+
 ## Project workflow
 
 0. Repository bootstrap
@@ -102,4 +110,6 @@ Stage 6A evaluates only the fixed, leak-free PMI lag-2 regressor on the secondar
 
 ## Current status
 
-**Stage 6A — PMI extension complete.** The PMI results are a secondary study and do not replace the Stage 5 conclusion or include a final future forecast.
+**Stage 6B — forecasting robustness analysis complete**
+
+ETS and target-only shock sensitivity are supplementary; the Stage 5 primary endpoint and conclusion remain in force. No final future forecast is included.

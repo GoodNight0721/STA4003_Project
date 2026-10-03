@@ -1,0 +1,1321 @@
+{
+  "stage": "6B",
+  "response": "log_retail",
+  "fixed_ets_specification": {
+    "error": "add",
+    "trend": "add",
+    "damped_trend": true,
+    "seasonal": "add",
+    "seasonal_periods": 4
+  },
+  "model_search": false,
+  "rolling_protocol": {
+    "target_start": "2005Q1",
+    "target_end": "2026Q2",
+    "target_count_per_horizon": 86,
+    "horizons": [
+      1,
+      2
+    ],
+    "primary_endpoint": {
+      "horizon": 2,
+      "scope": "all"
+    },
+    "training_start": "1994Q1",
+    "training_end_rule": "training ends at target minus horizon, inclusive",
+    "unique_origins": 87,
+    "fit_once_per_origin": true
+  },
+  "rolling_fit_diagnostics": {
+    "fit_success_count": 87,
+    "fit_failure_count": 0,
+    "converged_count": 87,
+    "nonconverged_count": 0,
+    "numerical_issue_origin_count": 0,
+    "numerical_issue_records": [],
+    "smearing_factor_min": 1.0017766973361193,
+    "smearing_factor_max": 1.0047435244718506,
+    "smearing_factor_count": 87,
+    "smearing_rule": "mean(exp(training ETS one-step residuals)) at each origin; finite residuals only",
+    "fit_diagnostics": [
+      {
+        "origin": "2004Q3",
+        "n_train": 43,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0024870452581707,
+        "n_training_residuals": 43,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2004Q4",
+        "n_train": 44,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0025293413898995,
+        "n_training_residuals": 44,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2005Q1",
+        "n_train": 45,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0024963802699594,
+        "n_training_residuals": 45,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2005Q2",
+        "n_train": 46,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0024436976792588,
+        "n_training_residuals": 46,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2005Q3",
+        "n_train": 47,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0024495043789612,
+        "n_training_residuals": 47,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2005Q4",
+        "n_train": 48,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038069361209165,
+        "n_training_residuals": 48,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2006Q1",
+        "n_train": 49,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0028818131962185,
+        "n_training_residuals": 49,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2006Q2",
+        "n_train": 50,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0029930707952375,
+        "n_training_residuals": 50,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2006Q3",
+        "n_train": 51,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003567887015241,
+        "n_training_residuals": 51,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2006Q4",
+        "n_train": 52,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0045441290397439,
+        "n_training_residuals": 52,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2007Q1",
+        "n_train": 53,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0046117908703707,
+        "n_training_residuals": 53,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2007Q2",
+        "n_train": 54,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0046907691733262,
+        "n_training_residuals": 54,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2007Q3",
+        "n_train": 55,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0046183167340503,
+        "n_training_residuals": 55,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2007Q4",
+        "n_train": 56,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0045518826772277,
+        "n_training_residuals": 56,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2008Q1",
+        "n_train": 57,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0047435244718506,
+        "n_training_residuals": 57,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2008Q2",
+        "n_train": 58,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0046162485799144,
+        "n_training_residuals": 58,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2008Q3",
+        "n_train": 59,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004459323017727,
+        "n_training_residuals": 59,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2008Q4",
+        "n_train": 60,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0046200169216644,
+        "n_training_residuals": 60,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2009Q1",
+        "n_train": 61,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0045346560795623,
+        "n_training_residuals": 61,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2009Q2",
+        "n_train": 62,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0044777160751575,
+        "n_training_residuals": 62,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2009Q3",
+        "n_train": 63,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0043816701320656,
+        "n_training_residuals": 63,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2009Q4",
+        "n_train": 64,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0044107250568732,
+        "n_training_residuals": 64,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2010Q1",
+        "n_train": 65,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0044737672837944,
+        "n_training_residuals": 65,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2010Q2",
+        "n_train": 66,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004276970419396,
+        "n_training_residuals": 66,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2010Q3",
+        "n_train": 67,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004098970215198,
+        "n_training_residuals": 67,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2010Q4",
+        "n_train": 68,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0043199387208086,
+        "n_training_residuals": 68,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2011Q1",
+        "n_train": 69,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0042621240141567,
+        "n_training_residuals": 69,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2011Q2",
+        "n_train": 70,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004178459373179,
+        "n_training_residuals": 70,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2011Q3",
+        "n_train": 71,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0040623127912014,
+        "n_training_residuals": 71,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2011Q4",
+        "n_train": 72,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0040876952494875,
+        "n_training_residuals": 72,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2012Q1",
+        "n_train": 73,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004069118405829,
+        "n_training_residuals": 73,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2012Q2",
+        "n_train": 74,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0040088617611453,
+        "n_training_residuals": 74,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2012Q3",
+        "n_train": 75,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003957451968023,
+        "n_training_residuals": 75,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2012Q4",
+        "n_train": 76,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038990492492612,
+        "n_training_residuals": 76,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2013Q1",
+        "n_train": 77,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038636198852684,
+        "n_training_residuals": 77,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2013Q2",
+        "n_train": 78,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.00382126610566,
+        "n_training_residuals": 78,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2013Q3",
+        "n_train": 79,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003808259081273,
+        "n_training_residuals": 79,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2013Q4",
+        "n_train": 80,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0037733387045527,
+        "n_training_residuals": 80,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2014Q1",
+        "n_train": 81,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003707883148976,
+        "n_training_residuals": 81,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2014Q2",
+        "n_train": 82,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003671547014745,
+        "n_training_residuals": 82,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2014Q3",
+        "n_train": 83,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0036644019034053,
+        "n_training_residuals": 83,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2014Q4",
+        "n_train": 84,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0036447964966062,
+        "n_training_residuals": 84,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2015Q1",
+        "n_train": 85,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0036148259548612,
+        "n_training_residuals": 85,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2015Q2",
+        "n_train": 86,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003594568184953,
+        "n_training_residuals": 86,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2015Q3",
+        "n_train": 87,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003591725320572,
+        "n_training_residuals": 87,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2015Q4",
+        "n_train": 88,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0036009644692754,
+        "n_training_residuals": 88,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2016Q1",
+        "n_train": 89,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0035014133732063,
+        "n_training_residuals": 89,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2016Q2",
+        "n_train": 90,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0034274150168971,
+        "n_training_residuals": 90,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2016Q3",
+        "n_train": 91,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0034219194876504,
+        "n_training_residuals": 91,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2016Q4",
+        "n_train": 92,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003454040671966,
+        "n_training_residuals": 92,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2017Q1",
+        "n_train": 93,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003354325175061,
+        "n_training_residuals": 93,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2017Q2",
+        "n_train": 94,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0033162450697235,
+        "n_training_residuals": 94,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2017Q3",
+        "n_train": 95,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0033025381837033,
+        "n_training_residuals": 95,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2017Q4",
+        "n_train": 96,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003316363191342,
+        "n_training_residuals": 96,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2018Q1",
+        "n_train": 97,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0031048940335796,
+        "n_training_residuals": 97,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2018Q2",
+        "n_train": 98,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.002939135660824,
+        "n_training_residuals": 98,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2018Q3",
+        "n_train": 99,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0029034540556365,
+        "n_training_residuals": 99,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2018Q4",
+        "n_train": 100,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0029545086410045,
+        "n_training_residuals": 100,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2019Q1",
+        "n_train": 101,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0030356154250735,
+        "n_training_residuals": 101,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2019Q2",
+        "n_train": 102,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0030295631055597,
+        "n_training_residuals": 102,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2019Q3",
+        "n_train": 103,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0030012867576004,
+        "n_training_residuals": 103,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2019Q4",
+        "n_train": 104,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003018540161992,
+        "n_training_residuals": 104,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2020Q1",
+        "n_train": 105,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0017766973361193,
+        "n_training_residuals": 105,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2020Q2",
+        "n_train": 106,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0022442869874222,
+        "n_training_residuals": 106,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2020Q3",
+        "n_train": 107,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0029034206481515,
+        "n_training_residuals": 107,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2020Q4",
+        "n_train": 108,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0035452880195932,
+        "n_training_residuals": 108,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2021Q1",
+        "n_train": 109,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0042548348538616,
+        "n_training_residuals": 109,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2021Q2",
+        "n_train": 110,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0037833266635707,
+        "n_training_residuals": 110,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2021Q3",
+        "n_train": 111,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0035583863003963,
+        "n_training_residuals": 111,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2021Q4",
+        "n_train": 112,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003476533719127,
+        "n_training_residuals": 112,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2022Q1",
+        "n_train": 113,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038807104085827,
+        "n_training_residuals": 113,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2022Q2",
+        "n_train": 114,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0034462269371136,
+        "n_training_residuals": 114,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2022Q3",
+        "n_train": 115,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0033856441779194,
+        "n_training_residuals": 115,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2022Q4",
+        "n_train": 116,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0031053177981513,
+        "n_training_residuals": 116,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2023Q1",
+        "n_train": 117,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0039179541652885,
+        "n_training_residuals": 117,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2023Q2",
+        "n_train": 118,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0039845055285088,
+        "n_training_residuals": 118,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2023Q3",
+        "n_train": 119,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038969711837753,
+        "n_training_residuals": 119,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2023Q4",
+        "n_train": 120,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0038357062276673,
+        "n_training_residuals": 120,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2024Q1",
+        "n_train": 121,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.004093101205765,
+        "n_training_residuals": 121,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2024Q2",
+        "n_train": 122,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0039835459752908,
+        "n_training_residuals": 122,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2024Q3",
+        "n_train": 123,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003791981427652,
+        "n_training_residuals": 123,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2024Q4",
+        "n_train": 124,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.00373446291314,
+        "n_training_residuals": 124,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2025Q1",
+        "n_train": 125,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0039240851702078,
+        "n_training_residuals": 125,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2025Q2",
+        "n_train": 126,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003899144784687,
+        "n_training_residuals": 126,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2025Q3",
+        "n_train": 127,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0036780387190714,
+        "n_training_residuals": 127,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2025Q4",
+        "n_train": 128,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.0034969548006791,
+        "n_training_residuals": 128,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      },
+      {
+        "origin": "2026Q1",
+        "n_train": 129,
+        "fit_success": true,
+        "converged": true,
+        "smearing_factor": 1.003651565330664,
+        "n_training_residuals": 129,
+        "numerical_issues": "",
+        "fit_failure_reason": ""
+      }
+    ]
+  },
+  "forecast_convention": {
+    "log_forecast": "ETS conditional forecast on log_retail scale",
+    "level_forecast": "exp(log forecast) * origin-specific training-only residual smearing factor",
+    "mase": "Stage 3 build_rolling_forecasts origin-specific training-only seasonal-period-4 scale",
+    "score": "actual retail level minus level forecast; MAE, RMSE, MASE"
+  },
+  "metrics": [
+    {
+      "model": "ETS",
+      "horizon": 1,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2590.5451580400727,
+      "RMSE": 4480.301611466038,
+      "MASE": 0.8337519123386458
+    },
+    {
+      "model": "ETS",
+      "horizon": 1,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4194.113605056794,
+      "RMSE": 7046.587375708079,
+      "MASE": 1.2461013004058876
+    },
+    {
+      "model": "ETS",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 3242.3192614317413,
+      "RMSE": 5211.836477306416,
+      "MASE": 1.0597599351116187
+    },
+    {
+      "model": "ETS",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4146.718880483808,
+      "RMSE": 7194.905454944118,
+      "MASE": 1.2294867814028922
+    }
+  ],
+  "model_comparison": [
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 47701.4281122676,
+      "RMSE": 53655.681384941,
+      "MASE": 14.7525797449367
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 6914.0488372093,
+      "RMSE": 9376.8863792839,
+      "MASE": 2.2039488757085
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 5991.50232558139,
+      "RMSE": 7023.88626808384,
+      "MASE": 2.24634881631154
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2970.23648767577,
+      "RMSE": 5115.52282129222,
+      "MASE": 0.947892964636097
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 2965.72967000947,
+      "RMSE": 5021.59283475077,
+      "MASE": 0.946406838794806
+    },
+    {
+      "model": "ETS",
+      "horizon": 2,
+      "scope": "all",
+      "n_forecasts": 86,
+      "MAE": 3242.3192614317413,
+      "RMSE": 5211.836477306416,
+      "MASE": 1.0597599351116187
+    },
+    {
+      "model": "Historical Mean",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 45709.8738317095,
+      "RMSE": 51500.6588268013,
+      "MASE": 14.3120409760852
+    },
+    {
+      "model": "Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4905.25,
+      "RMSE": 6476.38012918693,
+      "MASE": 1.79397220791958
+    },
+    {
+      "model": "Seasonal Naive",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 6967.46818181818,
+      "RMSE": 8851.86731206781,
+      "MASE": 2.48801781717908
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 3824.03509401562,
+      "RMSE": 7159.17120761125,
+      "MASE": 1.10858269171151
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 3852.96579048877,
+      "RMSE": 7044.61774430099,
+      "MASE": 1.10853693500367
+    },
+    {
+      "model": "ETS",
+      "horizon": 2,
+      "scope": "q1",
+      "n_forecasts": 22,
+      "MAE": 4146.718880483808,
+      "RMSE": 7194.905454944118,
+      "MASE": 1.2294867814028922
+    }
+  ],
+  "shock_sensitivity": {
+    "preset_targets": [
+      "2020Q1",
+      "2022Q2"
+    ],
+    "aggregation_only": true,
+    "refit_or_data_deletion": false,
+    "original_h2_shock_records_retained": {
+      "SARIMA": {
+        "2020Q1": 1,
+        "2022Q2": 1
+      },
+      "SARIMA+CNY": {
+        "2020Q1": 1,
+        "2022Q2": 1
+      },
+      "ETS": {
+        "2020Q1": 1,
+        "2022Q2": 1
+      }
+    },
+    "metrics": [
+      {
+        "model": "SARIMA",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 86,
+        "MAE": 2970.236487675762,
+        "RMSE": 5115.522821292204,
+        "MASE": 0.9478929646360936
+      },
+      {
+        "model": "SARIMA",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 84,
+        "MAE": 2634.719749687697,
+        "RMSE": 4218.6558699171,
+        "MASE": 0.869410498483842
+      },
+      {
+        "model": "SARIMA",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 22,
+        "MAE": 3824.035094015606,
+        "RMSE": 7159.17120761119,
+        "MASE": 1.1085826917115025
+      },
+      {
+        "model": "SARIMA",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 21,
+        "MAE": 2750.3601867814436,
+        "RMSE": 4536.3163852111375,
+        "MASE": 0.8414937844244741
+      },
+      {
+        "model": "SARIMA+CNY",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 86,
+        "MAE": 2965.7296700094494,
+        "RMSE": 5021.592834750728,
+        "MASE": 0.946406838794801
+      },
+      {
+        "model": "SARIMA+CNY",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 84,
+        "MAE": 2636.7656906640664,
+        "RMSE": 4131.789558539733,
+        "MASE": 0.8695149388051719
+      },
+      {
+        "model": "SARIMA+CNY",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 22,
+        "MAE": 3852.9657904887017,
+        "RMSE": 7044.617744300926,
+        "MASE": 1.1085369350036482
+      },
+      {
+        "model": "SARIMA+CNY",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 21,
+        "MAE": 2796.5822141772583,
+        "RMSE": 4439.324297624148,
+        "MASE": 0.8454994870358534
+      },
+      {
+        "model": "ETS",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 86,
+        "MAE": 3242.3192614317413,
+        "RMSE": 5211.836477306416,
+        "MASE": 1.0597599351116187
+      },
+      {
+        "model": "ETS",
+        "horizon": 2,
+        "scope": "all",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 84,
+        "MAE": 2926.0316230265516,
+        "RMSE": 4415.395611618867,
+        "MASE": 0.9872051018460064
+      },
+      {
+        "model": "ETS",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "full",
+        "excluded_targets": "",
+        "n_forecasts": 22,
+        "MAE": 4146.718880483808,
+        "RMSE": 7194.905454944118,
+        "MASE": 1.2294867814028922
+      },
+      {
+        "model": "ETS",
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "exclude_shocks",
+        "excluded_targets": "2020Q1|2022Q2",
+        "n_forecasts": 21,
+        "MAE": 3141.866162061794,
+        "RMSE": 4886.197790881489,
+        "MASE": 0.9817719549488579
+      }
+    ],
+    "cny_minus_sarima": [
+      {
+        "horizon": 2,
+        "scope": "all",
+        "sample": "exclude_shocks",
+        "n_sarima": 84,
+        "n_cny": 84,
+        "delta_MAE": 2.0459409763693657,
+        "delta_RMSE": -86.86631137736731,
+        "delta_MASE": 0.00010444032132994607,
+        "percent_change_MAE": 0.07765307777466193,
+        "percent_change_RMSE": -2.0590992499958123,
+        "percent_change_MASE": 0.0120127743467647
+      },
+      {
+        "horizon": 2,
+        "scope": "all",
+        "sample": "full",
+        "n_sarima": 86,
+        "n_cny": 86,
+        "delta_MAE": -4.5068176663126,
+        "delta_RMSE": -93.92998654147596,
+        "delta_MASE": -0.001486125841292596,
+        "percent_change_MAE": -0.15173262078667774,
+        "percent_change_RMSE": -1.8361756915737661,
+        "percent_change_MASE": -0.15678203096096782
+      },
+      {
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "exclude_shocks",
+        "n_sarima": 21,
+        "n_cny": 21,
+        "delta_MAE": 46.22202739581462,
+        "delta_RMSE": -96.99208758698933,
+        "delta_MASE": 0.004005702611379336,
+        "percent_change_MAE": 1.6805808787504688,
+        "percent_change_RMSE": -2.138124402063172,
+        "percent_change_MASE": 0.4760228400402233
+      },
+      {
+        "horizon": 2,
+        "scope": "q1",
+        "sample": "full",
+        "n_sarima": 22,
+        "n_cny": 22,
+        "delta_MAE": 28.93069647309585,
+        "delta_RMSE": -114.5534633102643,
+        "delta_MASE": -4.5756707854227585e-05,
+        "percent_change_MAE": 0.756548927031834,
+        "percent_change_RMSE": -1.600093921325392,
+        "percent_change_MASE": -0.004127496144070713
+      }
+    ]
+  },
+  "full_sample_descriptive_fit": {
+    "model": "ETS",
+    "response": "log_retail",
+    "error": "add",
+    "trend": "add",
+    "damped_trend": true,
+    "seasonal": "add",
+    "seasonal_periods": 4,
+    "n_obs": 130,
+    "fit_success": true,
+    "converged": true,
+    "failure_reason": "",
+    "sse": 0.2561947392370494,
+    "llf": 220.4458624933367,
+    "aic": -418.8917249866734,
+    "aic_reliable": true,
+    "residual_mean": 0.002575445093546755,
+    "residual_std": 0.04448956501389192,
+    "n_finite_residuals": 130,
+    "ljung_box_lag": 8,
+    "ljung_box_model_df": 0,
+    "ljung_box_statistic": 7.971674840853769,
+    "ljung_box_pvalue": 0.4362419050953371,
+    "warnings": "",
+    "descriptive_only": true,
+    "used_for_rolling_forecasts": false,
+    "forecast_created": false
+  },
+  "interpretation_guardrails": {
+    "primary_endpoint_unchanged": true,
+    "shock_sensitivity_replaces_primary": false,
+    "cny_or_ets_conclusion_is_causal": false,
+    "full_sample_fit_used_for_rolling_forecasts": false
+  },
+  "generated_artifacts": [
+    "outputs\\forecasts\\ets_rolling_forecasts.csv",
+    "outputs\\tables\\ets_metrics.csv",
+    "outputs\\tables\\model_comparison_stage6b.csv",
+    "outputs\\tables\\shock_sensitivity_metrics.csv",
+    "outputs\\tables\\cny_shock_sensitivity.csv",
+    "outputs\\tables\\ets_full_sample_diagnostics.csv",
+    "outputs\\diagnostics\\stage6b_summary.json",
+    "outputs\\figures\\ets_h2_actual_vs_forecast.png"
+  ]
+}

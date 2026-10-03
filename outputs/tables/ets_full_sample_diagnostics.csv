@@ -1,0 +1,2 @@
+model,response,error,trend,damped_trend,seasonal,seasonal_periods,n_obs,fit_success,converged,failure_reason,sse,llf,aic,aic_reliable,residual_mean,residual_std,n_finite_residuals,ljung_box_lag,ljung_box_model_df,ljung_box_statistic,ljung_box_pvalue,warnings,descriptive_only,used_for_rolling_forecasts,forecast_created
+ETS,log_retail,add,add,True,add,4,130,True,True,,0.256194739237049,220.445862493337,-418.891724986673,True,0.00257544509354675,0.0444895650138919,130,8,0,7.97167484085377,0.436241905095337,,True,False,False
