@@ -19,6 +19,49 @@
     "requested_fits": 174,
     "successful_fits": 174,
     "failed_fits": 0,
+    "pending_fits": 0,
+    "forecast_count": 344,
+    "model_coverage": {
+      "SARIMA-W40": {
+        "requested": 87,
+        "successful": 87,
+        "failed": 0,
+        "pending": 0,
+        "fit_complete": true,
+        "forecast_complete": true,
+        "forecasts_match_successful_fits": true,
+        "n_records": 172,
+        "n_expected": 172,
+        "n_missing_keys": 0,
+        "n_unexpected_keys": 0,
+        "complete": true,
+        "analysis_complete": true
+      },
+      "SARIMA-W60": {
+        "requested": 87,
+        "successful": 87,
+        "failed": 0,
+        "pending": 0,
+        "fit_complete": true,
+        "forecast_complete": true,
+        "forecasts_match_successful_fits": true,
+        "n_records": 172,
+        "n_expected": 172,
+        "n_missing_keys": 0,
+        "n_unexpected_keys": 0,
+        "complete": true,
+        "analysis_complete": true
+      }
+    },
+    "failures": [],
+    "warnings": [],
+    "saved_execution_consistent": true
+  },
+  "saved_window_execution": {
+    "complete": true,
+    "requested_fits": 174,
+    "successful_fits": 174,
+    "failed_fits": 0,
     "forecast_count": 344,
     "model_coverage": {
       "SARIMA-W40": {

@@ -184,3 +184,10 @@ python -m compileall scripts tests
   "evidence_status": "exploratory_historical_comparison"
 }
 ```
+
+## 当前窗口输出核对
+
+当前拟合表、预测键与分析覆盖共同决定完成状态；缓存仅用于追溯。
+
+- SARIMA-W40：成功 87/87，失败 0，待完成 0；当前预测 172/172，完整状态 True。
+- SARIMA-W60：成功 87/87，失败 0，待完成 0；当前预测 172/172，完整状态 True。
