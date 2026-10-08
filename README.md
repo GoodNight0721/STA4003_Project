@@ -122,3 +122,18 @@ Stage 7 refits the Stage 4 full-sample frozen SARIMA order on all observations t
 **Stage 7 — final forecast and report complete**
 
 The primary final forecast uses the Stage 4 full-sample SARIMA order without a post-hoc search. CNY, PMI, ETS, and target-only shock sensitivity remain supplementary to the fixed h = 2 all-target evaluation.
+
+## Exploratory optimization research
+
+The `research/forecast-optimization-20261008` branch adds an independent first-round study: paired-block loss uncertainty, frozen-order 40/60-quarter training windows, rolling interval evaluation and supplementary calibration, a fixed SARIMA/ETS point combination, mean/median sensitivity, calendar aggregation diagnostics, and the original two-shock scoring sensitivity. It preserves all Stage 1–7 data, forecasts and reports.
+
+```powershell
+python scripts/optimization/run_research.py
+python scripts/optimization/run_research.py --analysis-only
+python -m pytest -q
+python -m compileall scripts tests
+```
+
+Successful origin checkpoints resume automatically; failed checkpoints require explicit `--retry-failed`. Outputs are under `outputs/optimization/round1/`. Keep Git attributes enabled: the original manifest records mixed LF/CRLF serialization, now specified in `.gitattributes`. The determinism test compares two same-runtime fits in temporary paths and leaves archives untouched; exact numerical portability across runtimes is not claimed.
+
+See [the frozen protocol](docs/optimization_protocol.md), [research conclusions](docs/optimization_research.md), and [the full Chinese report](outputs/optimization/round1/research_report.md). W60 improves historical pooled point estimates, but descriptive bootstrap intervals cross zero and the gain is concentrated in recent years. It remains exploratory, without primary-model adoption or a new final forecast.

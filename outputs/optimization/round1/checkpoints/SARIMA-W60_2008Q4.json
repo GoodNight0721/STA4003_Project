@@ -1,0 +1,375 @@
+{
+  "attempts": [
+    {
+      "aic": -188.97511220734137,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 57,
+      "llf": 98.48755610367068,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        -0.23681064197920998,
+        0.9933679221487223,
+        -0.7136698684893666,
+        0.0017436380831929617
+      ],
+      "valid_parameters": true,
+      "warnings": []
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 338.2139202712351,
+      "actual": 29398.0,
+      "d": 1,
+      "error": -338.2139202712351,
+      "forecast": 29736.213920271235,
+      "forecast_level_median": 29710.299716580557,
+      "forecast_log_mean": 10.299249056476471,
+      "forecast_log_variance": 0.001743698914991711,
+      "horizon": 1,
+      "mase_scale": 1674.60357142857,
+      "model": "SARIMA-W60",
+      "n_train": 60,
+      "origin": "2008Q4",
+      "p": 1,
+      "q": 0,
+      "scaled_absolute_error": 0.20196655855852008,
+      "squared_error": 114388.65586523738,
+      "target": "2009Q1",
+      "training_end": "2008Q4",
+      "training_start": "1994Q1"
+    },
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 345.41453091199946,
+      "actual": 29313.2,
+      "d": 1,
+      "error": 345.41453091199946,
+      "forecast": 28967.785469088,
+      "forecast_level_median": 28927.84742702828,
+      "forecast_log_mean": 10.272559988946394,
+      "forecast_log_variance": 0.002759313364197032,
+      "horizon": 2,
+      "mase_scale": 1674.60357142857,
+      "model": "SARIMA-W60",
+      "n_train": 60,
+      "origin": "2008Q4",
+      "p": 1,
+      "q": 0,
+      "scaled_absolute_error": 0.20626644825397894,
+      "squared_error": 119311.19816515663,
+      "target": "2009Q2",
+      "training_end": "2008Q4",
+      "training_start": "1994Q1"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      1,
+      1,
+      0
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.cb58000000000p+14",
+        "horizon": 1,
+        "mase_scale": "0x1.a2a6a0ea0ea08p+10",
+        "origin": "2008Q4",
+        "target": "2009Q1"
+      },
+      {
+        "actual": "0x1.ca04ccccccccdp+14",
+        "horizon": 2,
+        "mase_scale": "0x1.a2a6a0ea0ea08p+10",
+        "origin": "2008Q4",
+        "target": "2009Q2"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "1994Q1",
+        "0x1.05c445aa2e3c5p+3"
+      ],
+      [
+        "1994Q2",
+        "0x1.0708b11409a24p+3"
+      ],
+      [
+        "1994Q3",
+        "0x1.094bec679cc75p+3"
+      ],
+      [
+        "1994Q4",
+        "0x1.10854ef459d99p+3"
+      ],
+      [
+        "1995Q1",
+        "0x1.0e4c1ebc83a97p+3"
+      ],
+      [
+        "1995Q2",
+        "0x1.0f22bbecaab8ap+3"
+      ],
+      [
+        "1995Q3",
+        "0x1.10e1719f7f8cbp+3"
+      ],
+      [
+        "1995Q4",
+        "0x1.170a43bb40b35p+3"
+      ],
+      [
+        "1996Q1",
+        "0x1.14e414e7ee914p+3"
+      ],
+      [
+        "1996Q2",
+        "0x1.151bb05faebc4p+3"
+      ],
+      [
+        "1996Q3",
+        "0x1.160afc47e49b2p+3"
+      ],
+      [
+        "1996Q4",
+        "0x1.1cdc74751ce29p+3"
+      ],
+      [
+        "1997Q1",
+        "0x1.19c8754f3775cp+3"
+      ],
+      [
+        "1997Q2",
+        "0x1.188192a737111p+3"
+      ],
+      [
+        "1997Q3",
+        "0x1.18df15a4acf31p+3"
+      ],
+      [
+        "1997Q4",
+        "0x1.1e7e49b1fab97p+3"
+      ],
+      [
+        "1998Q1",
+        "0x1.1bb0dd82fd75ep+3"
+      ],
+      [
+        "1998Q2",
+        "0x1.1a4a8c154c986p+3"
+      ],
+      [
+        "1998Q3",
+        "0x1.1b2fec56d5cfbp+3"
+      ],
+      [
+        "1998Q4",
+        "0x1.20d803cd141a7p+3"
+      ],
+      [
+        "1999Q1",
+        "0x1.1df6cce5f7404p+3"
+      ],
+      [
+        "1999Q2",
+        "0x1.1bfe75bc44bf5p+3"
+      ],
+      [
+        "1999Q3",
+        "0x1.1d1378ee28672p+3"
+      ],
+      [
+        "1999Q4",
+        "0x1.234f3dc054ef4p+3"
+      ],
+      [
+        "2000Q1",
+        "0x1.212157689ca19p+3"
+      ],
+      [
+        "2000Q2",
+        "0x1.1effcfc3f811fp+3"
+      ],
+      [
+        "2000Q3",
+        "0x1.1ff03afb7e910p+3"
+      ],
+      [
+        "2000Q4",
+        "0x1.2623e39f77293p+3"
+      ],
+      [
+        "2001Q1",
+        "0x1.2441c1d6cf851p+3"
+      ],
+      [
+        "2001Q2",
+        "0x1.221fc4c165908p+3"
+      ],
+      [
+        "2001Q3",
+        "0x1.22ebe9c886163p+3"
+      ],
+      [
+        "2001Q4",
+        "0x1.2933508f648c7p+3"
+      ],
+      [
+        "2002Q1",
+        "0x1.26d7f950b955fp+3"
+      ],
+      [
+        "2002Q2",
+        "0x1.24cba30121683p+3"
+      ],
+      [
+        "2002Q3",
+        "0x1.25a20578e5c4fp+3"
+      ],
+      [
+        "2002Q4",
+        "0x1.2c06961c36977p+3"
+      ],
+      [
+        "2003Q1",
+        "0x1.2a185f06f6944p+3"
+      ],
+      [
+        "2003Q2",
+        "0x1.28216c61522a7p+3"
+      ],
+      [
+        "2003Q3",
+        "0x1.2a3211cb039efp+3"
+      ],
+      [
+        "2003Q4",
+        "0x1.2f79e3864cb5cp+3"
+      ],
+      [
+        "2004Q1",
+        "0x1.2eb4f1e4b44a2p+3"
+      ],
+      [
+        "2004Q2",
+        "0x1.2da99524bfd2fp+3"
+      ],
+      [
+        "2004Q3",
+        "0x1.2f9702e6644d8p+3"
+      ],
+      [
+        "2004Q4",
+        "0x1.34c743201040cp+3"
+      ],
+      [
+        "2005Q1",
+        "0x1.33f1bac2df0d4p+3"
+      ],
+      [
+        "2005Q2",
+        "0x1.329d8a5482385p+3"
+      ],
+      [
+        "2005Q3",
+        "0x1.34b1e5c0b9991p+3"
+      ],
+      [
+        "2005Q4",
+        "0x1.4019d2391d580p+3"
+      ],
+      [
+        "2006Q1",
+        "0x1.3a502eec7c958p+3"
+      ],
+      [
+        "2006Q2",
+        "0x1.398de4c51116bp+3"
+      ],
+      [
+        "2006Q3",
+        "0x1.3aa9e0a41a262p+3"
+      ],
+      [
+        "2006Q4",
+        "0x1.3ef46887a8d65p+3"
+      ],
+      [
+        "2007Q1",
+        "0x1.3ec1fea8112bap+3"
+      ],
+      [
+        "2007Q2",
+        "0x1.3e40b13597918p+3"
+      ],
+      [
+        "2007Q3",
+        "0x1.3fa50507a6bd7p+3"
+      ],
+      [
+        "2007Q4",
+        "0x1.4489e98dcdb38p+3"
+      ],
+      [
+        "2008Q1",
+        "0x1.44c14c660a201p+3"
+      ],
+      [
+        "2008Q2",
+        "0x1.44ab90a782907p+3"
+      ],
+      [
+        "2008Q3",
+        "0x1.46540cc78e9f7p+3"
+      ],
+      [
+        "2008Q4",
+        "0x1.4a85b39e279ddp+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 60
+  },
+  "status": "successful"
+}

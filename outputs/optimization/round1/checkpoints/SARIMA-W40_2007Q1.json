@@ -1,0 +1,298 @@
+{
+  "attempts": [
+    {
+      "aic": -118.41282749605017,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 33,
+      "llf": 63.206413748025085,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        -0.35756280385329353,
+        0.9997113375710469,
+        -0.9322976163428472,
+        0.0015374397945419468
+      ],
+      "valid_parameters": true,
+      "warnings": [
+        "Non-stationary starting seasonal autoregressive Using zeros as starting parameters.",
+        "Non-invertible starting seasonal moving average Using zeros as starting parameters."
+      ]
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 1151.5671160153179,
+      "actual": 20856.0,
+      "d": 1,
+      "error": 1151.5671160153179,
+      "forecast": 19704.432883984682,
+      "forecast_level_median": 19688.54237520954,
+      "forecast_log_mean": 9.887792140208786,
+      "forecast_log_variance": 0.0016135373916277016,
+      "horizon": 1,
+      "mase_scale": 1315.25918367347,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2007Q1",
+      "p": 1,
+      "q": 0,
+      "scaled_absolute_error": 0.8755438702195819,
+      "squared_error": 1326106.8226878366,
+      "target": "2007Q2",
+      "training_end": "2007Q1",
+      "training_start": "1997Q2"
+    },
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 1129.5805961994374,
+      "actual": 21783.2,
+      "d": 1,
+      "error": 1129.5805961994374,
+      "forecast": 20653.619403800563,
+      "forecast_level_median": 20630.144237981367,
+      "forecast_log_mean": 9.93450859770258,
+      "forecast_log_variance": 0.0022745182394726727,
+      "horizon": 2,
+      "mase_scale": 1315.25918367347,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2007Q1",
+      "p": 1,
+      "q": 0,
+      "scaled_absolute_error": 0.8588273780720244,
+      "squared_error": 1275952.3233102765,
+      "target": "2007Q3",
+      "training_end": "2007Q1",
+      "training_start": "1997Q2"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      1,
+      1,
+      0
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.45e0000000000p+14",
+        "horizon": 1,
+        "mase_scale": "0x1.48d096771e4d8p+10",
+        "origin": "2007Q1",
+        "target": "2007Q2"
+      },
+      {
+        "actual": "0x1.545cccccccccdp+14",
+        "horizon": 2,
+        "mase_scale": "0x1.48d096771e4d8p+10",
+        "origin": "2007Q1",
+        "target": "2007Q3"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "1997Q2",
+        "0x1.188192a737111p+3"
+      ],
+      [
+        "1997Q3",
+        "0x1.18df15a4acf31p+3"
+      ],
+      [
+        "1997Q4",
+        "0x1.1e7e49b1fab97p+3"
+      ],
+      [
+        "1998Q1",
+        "0x1.1bb0dd82fd75ep+3"
+      ],
+      [
+        "1998Q2",
+        "0x1.1a4a8c154c986p+3"
+      ],
+      [
+        "1998Q3",
+        "0x1.1b2fec56d5cfbp+3"
+      ],
+      [
+        "1998Q4",
+        "0x1.20d803cd141a7p+3"
+      ],
+      [
+        "1999Q1",
+        "0x1.1df6cce5f7404p+3"
+      ],
+      [
+        "1999Q2",
+        "0x1.1bfe75bc44bf5p+3"
+      ],
+      [
+        "1999Q3",
+        "0x1.1d1378ee28672p+3"
+      ],
+      [
+        "1999Q4",
+        "0x1.234f3dc054ef4p+3"
+      ],
+      [
+        "2000Q1",
+        "0x1.212157689ca19p+3"
+      ],
+      [
+        "2000Q2",
+        "0x1.1effcfc3f811fp+3"
+      ],
+      [
+        "2000Q3",
+        "0x1.1ff03afb7e910p+3"
+      ],
+      [
+        "2000Q4",
+        "0x1.2623e39f77293p+3"
+      ],
+      [
+        "2001Q1",
+        "0x1.2441c1d6cf851p+3"
+      ],
+      [
+        "2001Q2",
+        "0x1.221fc4c165908p+3"
+      ],
+      [
+        "2001Q3",
+        "0x1.22ebe9c886163p+3"
+      ],
+      [
+        "2001Q4",
+        "0x1.2933508f648c7p+3"
+      ],
+      [
+        "2002Q1",
+        "0x1.26d7f950b955fp+3"
+      ],
+      [
+        "2002Q2",
+        "0x1.24cba30121683p+3"
+      ],
+      [
+        "2002Q3",
+        "0x1.25a20578e5c4fp+3"
+      ],
+      [
+        "2002Q4",
+        "0x1.2c06961c36977p+3"
+      ],
+      [
+        "2003Q1",
+        "0x1.2a185f06f6944p+3"
+      ],
+      [
+        "2003Q2",
+        "0x1.28216c61522a7p+3"
+      ],
+      [
+        "2003Q3",
+        "0x1.2a3211cb039efp+3"
+      ],
+      [
+        "2003Q4",
+        "0x1.2f79e3864cb5cp+3"
+      ],
+      [
+        "2004Q1",
+        "0x1.2eb4f1e4b44a2p+3"
+      ],
+      [
+        "2004Q2",
+        "0x1.2da99524bfd2fp+3"
+      ],
+      [
+        "2004Q3",
+        "0x1.2f9702e6644d8p+3"
+      ],
+      [
+        "2004Q4",
+        "0x1.34c743201040cp+3"
+      ],
+      [
+        "2005Q1",
+        "0x1.33f1bac2df0d4p+3"
+      ],
+      [
+        "2005Q2",
+        "0x1.329d8a5482385p+3"
+      ],
+      [
+        "2005Q3",
+        "0x1.34b1e5c0b9991p+3"
+      ],
+      [
+        "2005Q4",
+        "0x1.4019d2391d580p+3"
+      ],
+      [
+        "2006Q1",
+        "0x1.3a502eec7c958p+3"
+      ],
+      [
+        "2006Q2",
+        "0x1.398de4c51116bp+3"
+      ],
+      [
+        "2006Q3",
+        "0x1.3aa9e0a41a262p+3"
+      ],
+      [
+        "2006Q4",
+        "0x1.3ef46887a8d65p+3"
+      ],
+      [
+        "2007Q1",
+        "0x1.3ec1fea8112bap+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 40
+  },
+  "status": "successful"
+}

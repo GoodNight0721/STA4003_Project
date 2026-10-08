@@ -1,0 +1,295 @@
+{
+  "attempts": [
+    {
+      "aic": -97.8950051438693,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 43,
+      "llf": 52.94750257193465,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        -0.6392817963840092,
+        0.9994847136624679,
+        -0.9544308623636151,
+        0.002918266410097329
+      ],
+      "valid_parameters": true,
+      "warnings": []
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 4212.339976865667,
+      "actual": 124671.1,
+      "d": 1,
+      "error": 4212.339976865667,
+      "forecast": 120458.76002313434,
+      "forecast_level_median": 120272.28346788004,
+      "forecast_log_mean": 11.697513480304522,
+      "forecast_log_variance": 0.0030985051175496884,
+      "horizon": 1,
+      "mase_scale": 4469.86083333333,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2024Q4",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 0.9423872764567435,
+      "squared_error": 17743808.08070065,
+      "target": "2025Q1",
+      "training_end": "2024Q4",
+      "training_start": "2015Q1"
+    },
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 395.8847806318372,
+      "actual": 120787.3,
+      "d": 1,
+      "error": -395.8847806318372,
+      "forecast": 121183.18478063184,
+      "forecast_level_median": 120971.3820211596,
+      "forecast_log_mean": 11.70330928438363,
+      "forecast_log_variance": 0.0034986383495708073,
+      "horizon": 2,
+      "mase_scale": 4469.86083333333,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2024Q4",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 0.08856758529920766,
+      "squared_error": 156724.75953591787,
+      "target": "2025Q2",
+      "training_end": "2024Q4",
+      "training_start": "2015Q1"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.e6ff19999999ap+16",
+        "horizon": 1,
+        "mase_scale": "0x1.175dc5f92c5f6p+12",
+        "origin": "2024Q4",
+        "target": "2025Q1"
+      },
+      {
+        "actual": "0x1.d7d34cccccccdp+16",
+        "horizon": 2,
+        "mase_scale": "0x1.175dc5f92c5f6p+12",
+        "origin": "2024Q4",
+        "target": "2025Q2"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "2015Q1",
+        "0x1.655349be8ff32p+3"
+      ],
+      [
+        "2015Q2",
+        "0x1.65643ed959a31p+3"
+      ],
+      [
+        "2015Q3",
+        "0x1.66feb4a66559fp+3"
+      ],
+      [
+        "2015Q4",
+        "0x1.6b28262456f76p+3"
+      ],
+      [
+        "2016Q1",
+        "0x1.68790d9d7774bp+3"
+      ],
+      [
+        "2016Q2",
+        "0x1.688270f388228p+3"
+      ],
+      [
+        "2016Q3",
+        "0x1.6a326bf8769ecp+3"
+      ],
+      [
+        "2016Q4",
+        "0x1.6e608aefb2aaep+3"
+      ],
+      [
+        "2017Q1",
+        "0x1.6b85814940bbbp+3"
+      ],
+      [
+        "2017Q2",
+        "0x1.6bca1f080303cp+3"
+      ],
+      [
+        "2017Q3",
+        "0x1.6d5423d9231c6p+3"
+      ],
+      [
+        "2017Q4",
+        "0x1.7162a5e785b5bp+3"
+      ],
+      [
+        "2018Q1",
+        "0x1.6d23cc8de2ac3p+3"
+      ],
+      [
+        "2018Q2",
+        "0x1.6cf34d6a161e5p+3"
+      ],
+      [
+        "2018Q3",
+        "0x1.6e877ccc03793p+3"
+      ],
+      [
+        "2018Q4",
+        "0x1.727c30d306a2bp+3"
+      ],
+      [
+        "2019Q1",
+        "0x1.6fb2ca57a786cp+3"
+      ],
+      [
+        "2019Q2",
+        "0x1.6f93c254a3c64p+3"
+      ],
+      [
+        "2019Q3",
+        "0x1.70e0fc2eba27bp+3"
+      ],
+      [
+        "2019Q4",
+        "0x1.74e1049235f81p+3"
+      ],
+      [
+        "2020Q1",
+        "0x1.68b3269df97abp+3"
+      ],
+      [
+        "2020Q2",
+        "0x1.6e52c386d2ed8p+3"
+      ],
+      [
+        "2020Q3",
+        "0x1.70c0e5a35d67cp+3"
+      ],
+      [
+        "2020Q4",
+        "0x1.75e33ce63a5c2p+3"
+      ],
+      [
+        "2021Q1",
+        "0x1.720ac7da1ec4ep+3"
+      ],
+      [
+        "2021Q2",
+        "0x1.727be121ee675p+3"
+      ],
+      [
+        "2021Q3",
+        "0x1.725308bb90646p+3"
+      ],
+      [
+        "2021Q4",
+        "0x1.76fa24894c448p+3"
+      ],
+      [
+        "2022Q1",
+        "0x1.731231c64ba95p+3"
+      ],
+      [
+        "2022Q2",
+        "0x1.70f9d2bf55150p+3"
+      ],
+      [
+        "2022Q3",
+        "0x1.736d330941c82p+3"
+      ],
+      [
+        "2022Q4",
+        "0x1.76185058dde7ap+3"
+      ],
+      [
+        "2023Q1",
+        "0x1.74dd4845132f8p+3"
+      ],
+      [
+        "2023Q2",
+        "0x1.743ac929aa1d7p+3"
+      ],
+      [
+        "2023Q3",
+        "0x1.74c083126e979p+3"
+      ],
+      [
+        "2023Q4",
+        "0x1.78a8869c66d37p+3"
+      ],
+      [
+        "2024Q1",
+        "0x1.7655bee3d5fddp+3"
+      ],
+      [
+        "2024Q2",
+        "0x1.75106ee30caa3p+3"
+      ],
+      [
+        "2024Q3",
+        "0x1.75999dcb5781cp+3"
+      ],
+      [
+        "2024Q4",
+        "0x1.79dba2be0589bp+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 40
+  },
+  "status": "successful"
+}

@@ -193,6 +193,28 @@ def test_combination_is_exact_half_weight_and_does_not_infer_distribution():
     assert set(analysis.point_metrics(combined)["point_convention"]) == {"mean"}
 
 
+def test_shock_sensitivity_excludes_only_original_targets_and_keeps_mean_points():
+    frame = forecasts((11.0, 110.0, 13.0, 210.0))
+    frame["target"] = ["2019Q4", "2020Q1", "2021Q1", "2022Q2"]
+    frame["origin"] = ["2019Q3", "2019Q4", "2020Q4", "2022Q1"]
+    frame["forecast_level_median"] = 999.0
+    result = analysis.shock_sensitivity(frame)
+    assert set(result["point_convention"]) == {"mean"}
+    assert set(result["score_sample"]) == {"all", "exclude_original_shocks"}
+    all_targets = result.loc[(result["scope"] == "all") & (result["score_sample"] == "all")].iloc[0]
+    assert all_targets["n"] == 4
+    assert all_targets["MAE"] == 76.0
+    assert all_targets["RMSE"] == pytest.approx(np.sqrt(12502.5))
+    excluded = result.loc[(result["scope"] == "all") & (result["score_sample"] == "exclude_original_shocks")].iloc[0]
+    assert excluded["n"] == 2
+    assert excluded["MAE"] == 2.0
+    assert excluded["RMSE"] == pytest.approx(np.sqrt(5.0))
+    assert excluded["MASE"] == 1.0
+    q1 = result.loc[(result["scope"] == "Q1") & (result["score_sample"] == "exclude_original_shocks")].iloc[0]
+    assert q1["n"] == 1
+    assert q1["MAE"] == 3.0
+
+
 def test_calendar_windows_are_inclusive_and_partition_previous_q4_and_q1():
     calendar = pd.DataFrame({"year": [2020, 2021], "cny_date": ["2020-01-25", "2021-02-12"]})
     allocations, variation = analysis.calendar_diagnostic(calendar)
@@ -223,3 +245,26 @@ def test_run_analysis_temp_outputs_match_archived_point_tables(tmp_path):
     assert {"all", "calibrated_only"} <= set(interval["subset"])
     assert (tmp_path / "calendar_allocations.csv").is_file()
     assert (tmp_path / "paired_bootstrap.csv").is_file()
+
+
+def test_run_analysis_excludes_nonempty_partial_window_from_all_aggregate_scores(tmp_path):
+    archived = pd.read_csv(
+        analysis.PROJECT_ROOT / "outputs" / "forecasts" / "sarima_rolling_forecasts.csv"
+    )
+    partial = archived.iloc[:10].copy()
+    partial["model"] = "SARIMA-W40"
+    partial.to_csv(tmp_path / "window_forecasts.csv", index=False)
+    summary = analysis.run_analysis(tmp_path)
+    status = summary["window_completeness"]["SARIMA-W40"]
+    assert not status["complete"]
+    assert status["n_records"] == 10
+    assert status["n_missing_keys"] == 162
+    assert status["n_unexpected_keys"] == 0
+    assert any("SARIMA-W40 incomplete" in warning for warning in summary["warnings"])
+    for name in (
+        "point_metrics.csv", "period_metrics.csv", "interval_metrics.csv",
+        "shock_sensitivity.csv",
+    ):
+        assert "SARIMA-W40" not in set(pd.read_csv(tmp_path / name)["model"])
+    paired = pd.read_csv(tmp_path / "paired_bootstrap.csv")
+    assert "SARIMA-W40" not in set(paired["extended_model"])

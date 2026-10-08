@@ -1,0 +1,297 @@
+{
+  "attempts": [
+    {
+      "aic": -96.06663990560624,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 27,
+      "llf": 52.03331995280312,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        -0.5002031190312545,
+        0.9753382744644855,
+        -0.6861290913014679,
+        0.0034797170815475268
+      ],
+      "valid_parameters": true,
+      "warnings": [
+        "Non-stationary starting seasonal autoregressive Using zeros as starting parameters."
+      ]
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 531.7951737959229,
+      "actual": 109872.9,
+      "d": 1,
+      "error": -531.7951737959229,
+      "forecast": 110404.69517379592,
+      "forecast_level_median": 110212.68974107495,
+      "forecast_log_mean": 11.610167320986859,
+      "forecast_log_variance": 0.003481239364203916,
+      "horizon": 1,
+      "mase_scale": 4374.20818181818,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2022Q2",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 0.12157518611171299,
+      "squared_error": 282806.10687263584,
+      "target": "2022Q3",
+      "training_end": "2022Q2",
+      "training_start": "2012Q3"
+    },
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 6100.339979334312,
+      "actual": 119427.9,
+      "d": 1,
+      "error": -6100.339979334312,
+      "forecast": 125528.2399793343,
+      "forecast_level_median": 125255.47204282269,
+      "forecast_log_mean": 11.738110706957428,
+      "forecast_log_variance": 0.00435065007810139,
+      "horizon": 2,
+      "mase_scale": 4374.20818181818,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2022Q2",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 1.394615831201397,
+      "squared_error": 37214147.86346456,
+      "target": "2022Q4",
+      "training_end": "2022Q2",
+      "training_start": "2012Q3"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.ad30e66666666p+16",
+        "horizon": 1,
+        "mase_scale": "0x1.116354b6754b4p+12",
+        "origin": "2022Q2",
+        "target": "2022Q3"
+      },
+      {
+        "actual": "0x1.d283e66666666p+16",
+        "horizon": 2,
+        "mase_scale": "0x1.116354b6754b4p+12",
+        "origin": "2022Q2",
+        "target": "2022Q4"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "2012Q3",
+        "0x1.5afdfa00e27e1p+3"
+      ],
+      [
+        "2012Q4",
+        "0x1.5ed757d5a9eb2p+3"
+      ],
+      [
+        "2013Q1",
+        "0x1.5d8b4e11dbca9p+3"
+      ],
+      [
+        "2013Q2",
+        "0x1.5d76f08cc575cp+3"
+      ],
+      [
+        "2013Q3",
+        "0x1.5f02ea960b6fap+3"
+      ],
+      [
+        "2013Q4",
+        "0x1.62e7903211cb0p+3"
+      ],
+      [
+        "2014Q1",
+        "0x1.612888b545c79p+3"
+      ],
+      [
+        "2014Q2",
+        "0x1.612d538ac18f8p+3"
+      ],
+      [
+        "2014Q3",
+        "0x1.629adea897636p+3"
+      ],
+      [
+        "2014Q4",
+        "0x1.6673083558a76p+3"
+      ],
+      [
+        "2015Q1",
+        "0x1.655349be8ff32p+3"
+      ],
+      [
+        "2015Q2",
+        "0x1.65643ed959a31p+3"
+      ],
+      [
+        "2015Q3",
+        "0x1.66feb4a66559fp+3"
+      ],
+      [
+        "2015Q4",
+        "0x1.6b28262456f76p+3"
+      ],
+      [
+        "2016Q1",
+        "0x1.68790d9d7774bp+3"
+      ],
+      [
+        "2016Q2",
+        "0x1.688270f388228p+3"
+      ],
+      [
+        "2016Q3",
+        "0x1.6a326bf8769ecp+3"
+      ],
+      [
+        "2016Q4",
+        "0x1.6e608aefb2aaep+3"
+      ],
+      [
+        "2017Q1",
+        "0x1.6b85814940bbbp+3"
+      ],
+      [
+        "2017Q2",
+        "0x1.6bca1f080303cp+3"
+      ],
+      [
+        "2017Q3",
+        "0x1.6d5423d9231c6p+3"
+      ],
+      [
+        "2017Q4",
+        "0x1.7162a5e785b5bp+3"
+      ],
+      [
+        "2018Q1",
+        "0x1.6d23cc8de2ac3p+3"
+      ],
+      [
+        "2018Q2",
+        "0x1.6cf34d6a161e5p+3"
+      ],
+      [
+        "2018Q3",
+        "0x1.6e877ccc03793p+3"
+      ],
+      [
+        "2018Q4",
+        "0x1.727c30d306a2bp+3"
+      ],
+      [
+        "2019Q1",
+        "0x1.6fb2ca57a786cp+3"
+      ],
+      [
+        "2019Q2",
+        "0x1.6f93c254a3c64p+3"
+      ],
+      [
+        "2019Q3",
+        "0x1.70e0fc2eba27bp+3"
+      ],
+      [
+        "2019Q4",
+        "0x1.74e1049235f81p+3"
+      ],
+      [
+        "2020Q1",
+        "0x1.68b3269df97abp+3"
+      ],
+      [
+        "2020Q2",
+        "0x1.6e52c386d2ed8p+3"
+      ],
+      [
+        "2020Q3",
+        "0x1.70c0e5a35d67cp+3"
+      ],
+      [
+        "2020Q4",
+        "0x1.75e33ce63a5c2p+3"
+      ],
+      [
+        "2021Q1",
+        "0x1.720ac7da1ec4ep+3"
+      ],
+      [
+        "2021Q2",
+        "0x1.727be121ee675p+3"
+      ],
+      [
+        "2021Q3",
+        "0x1.725308bb90646p+3"
+      ],
+      [
+        "2021Q4",
+        "0x1.76fa24894c448p+3"
+      ],
+      [
+        "2022Q1",
+        "0x1.731231c64ba95p+3"
+      ],
+      [
+        "2022Q2",
+        "0x1.70f9d2bf55150p+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 40
+  },
+  "status": "successful"
+}

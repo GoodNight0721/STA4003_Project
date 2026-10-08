@@ -1,0 +1,297 @@
+{
+  "attempts": [
+    {
+      "aic": -194.68212680839792,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 38,
+      "llf": 101.34106340419896,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        0.04088671325490164,
+        0.9908924800572664,
+        -0.3283489913363867,
+        0.00023010651249681552
+      ],
+      "valid_parameters": true,
+      "warnings": [
+        "Non-stationary starting seasonal autoregressive Using zeros as starting parameters."
+      ]
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 4744.14878320726,
+      "actual": 90275.4,
+      "d": 1,
+      "error": -4744.14878320726,
+      "forecast": 95019.54878320725,
+      "forecast_level_median": 95008.61708861165,
+      "forecast_log_mean": 11.461722872665032,
+      "forecast_log_variance": 0.00023010682774451412,
+      "horizon": 1,
+      "mase_scale": 3821.21413043478,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2017Q4",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 1.2415291635769878,
+      "squared_error": 22506947.677206922,
+      "target": "2018Q1",
+      "training_end": "2017Q4",
+      "training_start": "2008Q1"
+    },
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 5853.016286956074,
+      "actual": 89742.5,
+      "d": 1,
+      "error": -5853.016286956074,
+      "forecast": 95595.51628695607,
+      "forecast_level_median": 95572.60407337097,
+      "forecast_log_mean": 11.467641489700782,
+      "forecast_log_variance": 0.0004794149495554217,
+      "horizon": 2,
+      "mase_scale": 3821.21413043478,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2017Q4",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 1.531716383109395,
+      "squared_error": 34257799.65537306,
+      "target": "2018Q2",
+      "training_end": "2017Q4",
+      "training_start": "2008Q1"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.60a3666666666p+16",
+        "horizon": 1,
+        "mase_scale": "0x1.dda6da2811cebp+11",
+        "origin": "2017Q4",
+        "target": "2018Q1"
+      },
+      {
+        "actual": "0x1.5e8e800000000p+16",
+        "horizon": 2,
+        "mase_scale": "0x1.dda6da2811cebp+11",
+        "origin": "2017Q4",
+        "target": "2018Q2"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "2008Q1",
+        "0x1.44c14c660a201p+3"
+      ],
+      [
+        "2008Q2",
+        "0x1.44ab90a782907p+3"
+      ],
+      [
+        "2008Q3",
+        "0x1.46540cc78e9f7p+3"
+      ],
+      [
+        "2008Q4",
+        "0x1.4a85b39e279ddp+3"
+      ],
+      [
+        "2009Q1",
+        "0x1.493ce2089e343p+3"
+      ],
+      [
+        "2009Q2",
+        "0x1.4925375c8d9f9p+3"
+      ],
+      [
+        "2009Q3",
+        "0x1.4ae646f156191p+3"
+      ],
+      [
+        "2009Q4",
+        "0x1.4f6c4c5974e66p+3"
+      ],
+      [
+        "2010Q1",
+        "0x1.500d306a2b170p+3"
+      ],
+      [
+        "2010Q2",
+        "0x1.4ffb762d83c6dp+3"
+      ],
+      [
+        "2010Q3",
+        "0x1.51c07cc7d1bb5p+3"
+      ],
+      [
+        "2010Q4",
+        "0x1.55cb87bdcf030p+3"
+      ],
+      [
+        "2011Q1",
+        "0x1.55592b7fe08afp+3"
+      ],
+      [
+        "2011Q2",
+        "0x1.555716d2aa5c6p+3"
+      ],
+      [
+        "2011Q3",
+        "0x1.56d885d31337fp+3"
+      ],
+      [
+        "2011Q4",
+        "0x1.5a7f562174c4dp+3"
+      ],
+      [
+        "2012Q1",
+        "0x1.59cb407032980p+3"
+      ],
+      [
+        "2012Q2",
+        "0x1.5985db76b3bb8p+3"
+      ],
+      [
+        "2012Q3",
+        "0x1.5afdfa00e27e1p+3"
+      ],
+      [
+        "2012Q4",
+        "0x1.5ed757d5a9eb2p+3"
+      ],
+      [
+        "2013Q1",
+        "0x1.5d8b4e11dbca9p+3"
+      ],
+      [
+        "2013Q2",
+        "0x1.5d76f08cc575cp+3"
+      ],
+      [
+        "2013Q3",
+        "0x1.5f02ea960b6fap+3"
+      ],
+      [
+        "2013Q4",
+        "0x1.62e7903211cb0p+3"
+      ],
+      [
+        "2014Q1",
+        "0x1.612888b545c79p+3"
+      ],
+      [
+        "2014Q2",
+        "0x1.612d538ac18f8p+3"
+      ],
+      [
+        "2014Q3",
+        "0x1.629adea897636p+3"
+      ],
+      [
+        "2014Q4",
+        "0x1.6673083558a76p+3"
+      ],
+      [
+        "2015Q1",
+        "0x1.655349be8ff32p+3"
+      ],
+      [
+        "2015Q2",
+        "0x1.65643ed959a31p+3"
+      ],
+      [
+        "2015Q3",
+        "0x1.66feb4a66559fp+3"
+      ],
+      [
+        "2015Q4",
+        "0x1.6b28262456f76p+3"
+      ],
+      [
+        "2016Q1",
+        "0x1.68790d9d7774bp+3"
+      ],
+      [
+        "2016Q2",
+        "0x1.688270f388228p+3"
+      ],
+      [
+        "2016Q3",
+        "0x1.6a326bf8769ecp+3"
+      ],
+      [
+        "2016Q4",
+        "0x1.6e608aefb2aaep+3"
+      ],
+      [
+        "2017Q1",
+        "0x1.6b85814940bbbp+3"
+      ],
+      [
+        "2017Q2",
+        "0x1.6bca1f080303cp+3"
+      ],
+      [
+        "2017Q3",
+        "0x1.6d5423d9231c6p+3"
+      ],
+      [
+        "2017Q4",
+        "0x1.7162a5e785b5bp+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 40
+  },
+  "status": "successful"
+}

@@ -1,0 +1,149 @@
+{
+  "evidence_status": "exploratory",
+  "archived_metric_agreement": true,
+  "window_completeness": {
+    "SARIMA-W40": {
+      "complete": true,
+      "n_records": 172,
+      "n_expected": 172,
+      "n_missing_keys": 0,
+      "n_unexpected_keys": 0
+    },
+    "SARIMA-W60": {
+      "complete": true,
+      "n_records": 172,
+      "n_expected": 172,
+      "n_missing_keys": 0,
+      "n_unexpected_keys": 0
+    }
+  },
+  "primary_h2_mean_scores": [
+    {
+      "model": "ETS",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 3242.319261431744,
+      "RMSE": 5211.836477306429,
+      "MASE": 1.0597599351116191
+    },
+    {
+      "model": "SARIMA",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 2970.236487675762,
+      "RMSE": 5115.522821292204,
+      "MASE": 0.9478929646360936
+    },
+    {
+      "model": "SARIMA+CNY",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 2965.7296700094494,
+      "RMSE": 5021.592834750728,
+      "MASE": 0.946406838794801
+    },
+    {
+      "model": "SARIMA+ETS-50:50",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 3072.3280768372447,
+      "RMSE": 5136.953340465334,
+      "MASE": 0.9930934086583957
+    },
+    {
+      "model": "SARIMA-W40",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 3285.0075948415088,
+      "RMSE": 5454.581846313624,
+      "MASE": 1.0410845870544718
+    },
+    {
+      "model": "SARIMA-W60",
+      "horizon": 2,
+      "scope": "all",
+      "point_convention": "mean",
+      "n": 86,
+      "MAE": 2848.7949619505403,
+      "RMSE": 4811.076975996665,
+      "MASE": 0.9307548922749307
+    }
+  ],
+  "experiment_specs": {
+    "target_window": "2005Q1-2026Q2",
+    "primary_horizon": 2,
+    "bootstrap": {
+      "reps": 5000,
+      "seed": 20261008,
+      "block_lengths": [
+        4,
+        8
+      ],
+      "method": "paired_chronological_circular_blocks",
+      "delta_direction": "extended_minus_reference",
+      "percentile_interval": [
+        0.025,
+        0.975
+      ]
+    },
+    "calibration": {
+      "last_n": 40,
+      "minimum": 20,
+      "eligible": "same model/horizon target <= origin",
+      "statistic": "absolute standardized log error",
+      "quantile_method": "higher",
+      "coverages": [
+        0.8,
+        0.95
+      ]
+    },
+    "combination": {
+      "model": "SARIMA+ETS-50:50",
+      "sarima_weight": 0.5,
+      "ets_weight": 0.5
+    },
+    "mase_scale": "unchanged archived Stage 4 origin-specific scale",
+    "periods": [
+      "2005-2011",
+      "2012-2019",
+      "2020-2026"
+    ],
+    "shock_sensitivity": {
+      "excluded_targets": [
+        "2020Q1",
+        "2022Q2"
+      ],
+      "source": "original Stage 6B preset targets",
+      "role": "secondary target-only scoring; no refits"
+    },
+    "calendar_windows": [
+      [
+        -14,
+        7
+      ],
+      [
+        -30,
+        7
+      ]
+    ]
+  },
+  "warnings": [
+    "Historical experiment specifications were defined after benchmark inspection; results are exploratory.",
+    "Percentile intervals are descriptive conditional on archived fits; no significance, zero-effect or multiplicity-adjusted claim.",
+    "Q1 blocks count retained annual observations; block length 4 spans four Q1 years.",
+    "Calibrated all-target intervals mix parametric fallback and calibrated intervals; calibrated_only excludes fallback.",
+    "Period comparisons are supplementary descriptive analyses; no independent future evaluation.",
+    "Target-only shock sensitivity excludes only the original Stage 6B targets 2020Q1 and 2022Q2; secondary scores do not replace the primary endpoint.",
+    "At least one holiday window has constant Q1 allocation; calendar diagnostic does not establish an economic effect."
+  ]
+}

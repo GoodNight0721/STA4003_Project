@@ -1,0 +1,263 @@
+{
+  "attempts": [
+    {
+      "aic": -98.92833387702343,
+      "attempt": 1,
+      "converged": true,
+      "disp": false,
+      "iterations": 37,
+      "llf": 53.46416693851172,
+      "maxiter": 100,
+      "method": "lbfgs",
+      "start": "initial",
+      "start_params": null,
+      "terminal_params": [
+        -0.8000452938572633,
+        0.9973349674154418,
+        -0.8902262633007855,
+        0.002906369803995782
+      ],
+      "valid_parameters": true,
+      "warnings": []
+    }
+  ],
+  "failure_reason": null,
+  "forecasts": [
+    {
+      "D": 0,
+      "P": 1,
+      "Q": 1,
+      "absolute_error": 3984.237299783752,
+      "actual": 121027.2,
+      "d": 1,
+      "error": -3984.237299783752,
+      "forecast": 125011.43729978375,
+      "forecast_level_median": 124824.81323192871,
+      "forecast_log_mean": 11.734666539128385,
+      "forecast_log_variance": 0.0029879427372009365,
+      "horizon": 1,
+      "mase_scale": 4421.7176,
+      "model": "SARIMA-W40",
+      "n_train": 40,
+      "origin": "2026Q1",
+      "p": 0,
+      "q": 1,
+      "scaled_absolute_error": 0.9010610039374184,
+      "squared_error": 15874146.860988123,
+      "target": "2026Q2",
+      "training_end": "2026Q1",
+      "training_start": "2016Q2"
+    }
+  ],
+  "specification": {
+    "estimator": {
+      "concentrate_scale": false,
+      "enforce_invertibility": true,
+      "enforce_stationarity": true,
+      "simple_differencing": false,
+      "trend": "n"
+    },
+    "fit_options": {
+      "disp": false,
+      "maxiter": 100,
+      "method": "lbfgs"
+    },
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "retry_sequence": [
+      "initial",
+      "terminal_continuation",
+      "deterministic_order"
+    ],
+    "schema_version": 1,
+    "scoring": [
+      {
+        "actual": "0x1.d8c3333333333p+16",
+        "horizon": 1,
+        "mase_scale": "0x1.145b7b4a2339cp+12",
+        "origin": "2026Q1",
+        "target": "2026Q2"
+      }
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      4
+    ],
+    "training": [
+      [
+        "2016Q2",
+        "0x1.688270f388228p+3"
+      ],
+      [
+        "2016Q3",
+        "0x1.6a326bf8769ecp+3"
+      ],
+      [
+        "2016Q4",
+        "0x1.6e608aefb2aaep+3"
+      ],
+      [
+        "2017Q1",
+        "0x1.6b85814940bbbp+3"
+      ],
+      [
+        "2017Q2",
+        "0x1.6bca1f080303cp+3"
+      ],
+      [
+        "2017Q3",
+        "0x1.6d5423d9231c6p+3"
+      ],
+      [
+        "2017Q4",
+        "0x1.7162a5e785b5bp+3"
+      ],
+      [
+        "2018Q1",
+        "0x1.6d23cc8de2ac3p+3"
+      ],
+      [
+        "2018Q2",
+        "0x1.6cf34d6a161e5p+3"
+      ],
+      [
+        "2018Q3",
+        "0x1.6e877ccc03793p+3"
+      ],
+      [
+        "2018Q4",
+        "0x1.727c30d306a2bp+3"
+      ],
+      [
+        "2019Q1",
+        "0x1.6fb2ca57a786cp+3"
+      ],
+      [
+        "2019Q2",
+        "0x1.6f93c254a3c64p+3"
+      ],
+      [
+        "2019Q3",
+        "0x1.70e0fc2eba27bp+3"
+      ],
+      [
+        "2019Q4",
+        "0x1.74e1049235f81p+3"
+      ],
+      [
+        "2020Q1",
+        "0x1.68b3269df97abp+3"
+      ],
+      [
+        "2020Q2",
+        "0x1.6e52c386d2ed8p+3"
+      ],
+      [
+        "2020Q3",
+        "0x1.70c0e5a35d67cp+3"
+      ],
+      [
+        "2020Q4",
+        "0x1.75e33ce63a5c2p+3"
+      ],
+      [
+        "2021Q1",
+        "0x1.720ac7da1ec4ep+3"
+      ],
+      [
+        "2021Q2",
+        "0x1.727be121ee675p+3"
+      ],
+      [
+        "2021Q3",
+        "0x1.725308bb90646p+3"
+      ],
+      [
+        "2021Q4",
+        "0x1.76fa24894c448p+3"
+      ],
+      [
+        "2022Q1",
+        "0x1.731231c64ba95p+3"
+      ],
+      [
+        "2022Q2",
+        "0x1.70f9d2bf55150p+3"
+      ],
+      [
+        "2022Q3",
+        "0x1.736d330941c82p+3"
+      ],
+      [
+        "2022Q4",
+        "0x1.76185058dde7ap+3"
+      ],
+      [
+        "2023Q1",
+        "0x1.74dd4845132f8p+3"
+      ],
+      [
+        "2023Q2",
+        "0x1.743ac929aa1d7p+3"
+      ],
+      [
+        "2023Q3",
+        "0x1.74c083126e979p+3"
+      ],
+      [
+        "2023Q4",
+        "0x1.78a8869c66d37p+3"
+      ],
+      [
+        "2024Q1",
+        "0x1.7655bee3d5fddp+3"
+      ],
+      [
+        "2024Q2",
+        "0x1.75106ee30caa3p+3"
+      ],
+      [
+        "2024Q3",
+        "0x1.75999dcb5781cp+3"
+      ],
+      [
+        "2024Q4",
+        "0x1.79dba2be0589bp+3"
+      ],
+      [
+        "2025Q1",
+        "0x1.77784a9478c87p+3"
+      ],
+      [
+        "2025Q2",
+        "0x1.767507e9d94d1p+3"
+      ],
+      [
+        "2025Q3",
+        "0x1.765c011d3671bp+3"
+      ],
+      [
+        "2025Q4",
+        "0x1.7a180d3cff64dp+3"
+      ],
+      [
+        "2026Q1",
+        "0x1.783c9cd3e0bd4p+3"
+      ]
+    ],
+    "versions": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "python": "3.14.4",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6"
+    },
+    "window": 40
+  },
+  "status": "successful"
+}

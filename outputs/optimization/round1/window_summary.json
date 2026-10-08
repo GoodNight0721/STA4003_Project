@@ -1,0 +1,29 @@
+{
+  "complete": true,
+  "failed_fits": 0,
+  "failures": [],
+  "forecast_count": 344,
+  "generated_artifacts": [
+    "window_forecasts.csv",
+    "window_fits.csv",
+    "window_summary.json"
+  ],
+  "model_coverage": {
+    "SARIMA-W40": {
+      "complete": true,
+      "failed": 0,
+      "pending": 0,
+      "requested": 87,
+      "successful": 87
+    },
+    "SARIMA-W60": {
+      "complete": true,
+      "failed": 0,
+      "pending": 0,
+      "requested": 87,
+      "successful": 87
+    }
+  },
+  "requested_fits": 174,
+  "successful_fits": 174
+}

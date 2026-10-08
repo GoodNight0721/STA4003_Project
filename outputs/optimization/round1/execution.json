@@ -1,0 +1,68 @@
+{
+  "runtime": {
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6",
+      "matplotlib": "3.10.9"
+    },
+    "baseline_commit": "4b03bdc3b4602b4419478584b170da2e8b5dd927",
+    "blas_threads": 1,
+    "data_cutoff": "2026Q2",
+    "evidence_status": "exploratory_historical_comparison"
+  },
+  "window_study": {
+    "complete": true,
+    "requested_fits": 174,
+    "successful_fits": 174,
+    "failed_fits": 0,
+    "forecast_count": 344,
+    "model_coverage": {
+      "SARIMA-W40": {
+        "requested": 87,
+        "successful": 87,
+        "failed": 0,
+        "pending": 0,
+        "complete": true
+      },
+      "SARIMA-W60": {
+        "requested": 87,
+        "successful": 87,
+        "failed": 0,
+        "pending": 0,
+        "complete": true
+      }
+    },
+    "failures": [],
+    "generated_artifacts": [
+      "window_forecasts.csv",
+      "window_fits.csv",
+      "window_summary.json"
+    ]
+  },
+  "baseline_before": {
+    "protected_count": 67,
+    "other_archived_count": 8,
+    "unchanged": true
+  },
+  "baseline_after": {
+    "protected_count": 67,
+    "other_archived_count": 8,
+    "unchanged": true
+  },
+  "figures": [
+    "figures/primary_errors.png",
+    "figures/cny_cumulative_loss.png",
+    "figures/interval_coverage.png",
+    "figures/paired_mae_uncertainty.png"
+  ],
+  "complete": true,
+  "commands": [
+    "python scripts/optimization/run_research.py",
+    "python -m pytest -q",
+    "python -m compileall scripts tests"
+  ]
+}

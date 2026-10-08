@@ -18,6 +18,7 @@ BLOCK_LENGTHS = (4, 8)
 COVERAGES = (0.8, 0.95)
 CALIBRATION_WINDOW = 40
 CALIBRATION_MINIMUM = 20
+ORIGINAL_SHOCK_TARGETS = ("2020Q1", "2022Q2")
 POINT_COLUMNS = [
     "model", "horizon", "scope", "point_convention", "n", "MAE", "RMSE", "MASE",
 ]
@@ -170,6 +171,24 @@ def combine_forecasts(reference: pd.DataFrame, ets: pd.DataFrame) -> pd.DataFram
     result["squared_error"] = result["error"]**2
     result["scaled_absolute_error"] = result["absolute_error"] / result["mase_scale"]
     return result
+
+
+def shock_sensitivity(forecasts: pd.DataFrame) -> pd.DataFrame:
+    """Secondary mean scoring excludes only the original Stage 6B targets."""
+    forecasts = _validate_forecasts(forecasts).drop(
+        columns=["forecast_level_median"], errors="ignore",
+    )
+    tables = []
+    for sample, subset in (
+        ("all", forecasts),
+        ("exclude_original_shocks", forecasts.loc[~forecasts["target"].isin(ORIGINAL_SHOCK_TARGETS)]),
+    ):
+        if subset.empty:
+            continue
+        table = point_metrics(subset)
+        table["score_sample"] = sample
+        tables.append(table)
+    return pd.concat(tables, ignore_index=True)
 
 
 # Parametric and prior-error calibrated intervals.
@@ -380,6 +399,7 @@ def run_analysis(output_dir: Path) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     for filename, table in {
         "point_metrics.csv": metrics,
+        "shock_sensitivity.csv": shock_sensitivity(forecasts),
         "paired_losses.csv": pd.concat(pair_tables, ignore_index=True),
         "paired_bootstrap.csv": pd.concat(bootstrap_tables, ignore_index=True),
         "interval_records.csv": intervals,
@@ -395,6 +415,7 @@ def run_analysis(output_dir: Path) -> dict:
         "Q1 blocks count retained annual observations; block length 4 spans four Q1 years.",
         "Calibrated all-target intervals mix parametric fallback and calibrated intervals; calibrated_only excludes fallback.",
         "Period comparisons are supplementary descriptive analyses; no independent future evaluation.",
+        "Target-only shock sensitivity excludes only the original Stage 6B targets 2020Q1 and 2022Q2; secondary scores do not replace the primary endpoint.",
     ])
     if variation["q1_constant_regressor_risk"].any():
         warnings.append("At least one holiday window has constant Q1 allocation; calendar diagnostic does not establish an economic effect.")
@@ -410,6 +431,7 @@ def run_analysis(output_dir: Path) -> dict:
             "combination": {"model": "SARIMA+ETS-50:50", "sarima_weight": 0.5, "ets_weight": 0.5},
             "mase_scale": "unchanged archived Stage 4 origin-specific scale",
             "periods": ["2005-2011", "2012-2019", "2020-2026"],
+            "shock_sensitivity": {"excluded_targets": list(ORIGINAL_SHOCK_TARGETS), "source": "original Stage 6B preset targets", "role": "secondary target-only scoring; no refits"},
             "calendar_windows": [[-14, 7], [-30, 7]],
         },
         "warnings": warnings,

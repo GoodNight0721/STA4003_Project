@@ -22,6 +22,10 @@ The user authorized experiments, analysis, and a GitHub optimization research br
 5. **Point-functional sensitivity**: score archived lognormal medians separately from the original conditional-mean forecasts, for SARIMA/CNY/windows. Do not replace original scores or mix point conventions within a comparison.
 6. **Calendar aggregation diagnostic**: use inclusive windows [-14,+7] and [-30,+7] days around CNY to measure Q1 and preceding-Q4 allocation. Report variation and constant-regressor risk without fitting a new holiday model. No economic-data imputation, external data acquisition, or causal effect estimate.
 
+### Secondary scoring amendment
+
+After initial window results, reuse **only the original Stage 6B preset targets 2020Q1 and 2022Q2** for target-only shock sensitivity across complete conditional-mean forecast models. Export both full and excluded-target scores; keep all training observations and forecast rows. No new shock dates are selected, no fit is repeated, and the 86-target primary endpoint remains unchanged. This amendment tests whether the candidate's pooled improvement depends on the two previously specified shocks and remains explicitly supplementary.
+
 ## Reporting and acceptance
 
 Baseline portability repairs are confined to explicit `.gitattributes` rules for the mixed serialized line endings in the existing manifest, and a Stage 7 determinism test that compares two same-runtime fits in temporary paths. The original test compared a fresh local fit with archived numerical optimization bytes and overwrote the archives. On this runtime the original Q4 forecast differs by about 1.56 亿元 (0.00112%); archive forecasts remain unchanged and are used as the research reference. The repair does not claim exact numerical portability.
