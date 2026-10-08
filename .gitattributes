@@ -1,0 +1,8 @@
+# Preserve the serialized line endings recorded by the existing Stage 7 manifest.
+* text=auto eol=lf
+data/meta/lunar_new_year.csv text eol=crlf
+data/processed/pmi_quarterly.csv text eol=crlf
+data/processed/retail_quarterly.csv text eol=crlf
+data/raw/*.csv text eol=crlf
+outputs/diagnostics/data_audit.json text eol=crlf
+outputs/diagnostics/stage2_summary.json text eol=crlf
